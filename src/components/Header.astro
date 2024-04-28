@@ -1,21 +1,36 @@
 ---
+import { headerMenu } from "../data/navigation";
+
 interface Props {
-	class?: string;
+  class?: string;
 }
 
-const {class: className} = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<header class={`sticky top-0 w-full flex justify-center px-4 bg-surface-0 shadow-sm ${className}`}>
+<header
+  class={`sticky top-0 w-full flex justify-center px-4 bg-surface-0 shadow-sm ${className}`}
+>
   <div class="container flex justify-between text-sm font-semibold">
     <div class="flex items-center gap-6">
       <h1 class="text-xl text-primary font-bold">paul2g.dev</h1>
       <nav>
         <ul class="flex gap-2">
-          <li><a href="#about">Sobre mi</a></li>
-          <li><a href="#experience">Experiencia</a></li>
-          <li><a href="#projects">Projectos</a></li>
-          <li><a href="#skills">Habilidades</a></li>
+          {
+            headerMenu.map((item) => (
+              <li>
+                <a
+                  href={item.to}
+                  class:list={[
+                    "nav-link relative",
+                    "before:w-0 before:content-[''] before:absolute before:-z-10 before:inset-0 before:bg-primary-500/20 before:transition-all hover:before:w-full",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
     </div>

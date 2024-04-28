@@ -1,12 +1,14 @@
 ---
-import ColorPalette from "../components/ColorPalette.astro";
 import Layout from "../layouts/Layout.astro";
+import Timeline from "../components/Timeline.astro";
+
+import { experienceTimeline } from "../data/experience-timeline";
 ---
 
 <Layout title="Paul Garcia | paul2g">
   <div class="w-full flex flex-col items-center gap-8 px-4 py-8">
-      <div class="w-full max-w-screen-lg">
-          <ColorPalette />
-      </div>
+    <div class="w-full max-w-screen-lg">
+      <Timeline events={experienceTimeline} />
+    </div>
   </div>
 </Layout>
