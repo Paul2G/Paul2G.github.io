@@ -1,9 +1,12 @@
 ---
+import ColorPalette from "../components/ColorPalette.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Paul Garcia | paul2g">
-  <div class="w-full h-screen flex items-center justify-center p-2">
-    <p class="text-2xl">Hola, este seria mi Portafolio, algun dia jsjsjs</p>
+  <div class="w-full flex flex-col items-center gap-8 px-4 py-8">
+      <div class="w-full max-w-screen-lg">
+          <ColorPalette />
+      </div>
   </div>
 </Layout>

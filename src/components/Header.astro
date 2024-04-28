@@ -1,0 +1,26 @@
+---
+interface Props {
+	class?: string;
+}
+
+const {class: className} = Astro.props;
+---
+
+<header class={`sticky top-0 w-full flex justify-center px-4 bg-surface-0 shadow-sm ${className}`}>
+  <div class="container flex justify-between text-sm font-semibold">
+    <div class="flex items-center gap-6">
+      <h1 class="text-xl text-primary font-bold">paul2g.dev</h1>
+      <nav>
+        <ul class="flex gap-2">
+          <li><a href="#about">Sobre mi</a></li>
+          <li><a href="#experience">Experiencia</a></li>
+          <li><a href="#projects">Projectos</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="flex items-center gap-1">
+      <span>options</span>
+    </div>
+  </div>
+</header>
