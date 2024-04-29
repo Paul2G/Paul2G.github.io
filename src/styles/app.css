@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Quicksand:wght@300..700&display=swap');
 
 :root {
     --rgb-value-primary-50: 236 244 255;
@@ -39,7 +39,7 @@
     --rgb-value-accent-900: 128 27 46;
     --rgb-value-accent-950: 71 10 19;
     --rgb-value-accent: var(--rgb-value-accent-500);
-  
+
     --rgb-value-surface-50: 247 248 249;
     --rgb-value-surface-100: 237 239 241;
     --rgb-value-surface-200: 215 220 224;
