@@ -2,6 +2,7 @@ import CLangIcon from "./CIcon.astro";
 import CSharpIcon from "./CSharpIcon.astro";
 import CssIcon from "./CssIcon.astro";
 import EspressifIcon from "./EspressifIcon.astro";
+import GitIcon from "./GitIcon.astro";
 import HtmlIcon from "./HtmlIcon.astro";
 import JavaIcon from "./JavaIcon.astro";
 import JavaScriptIcon from "./JavaScriptIcon.astro";
@@ -17,6 +18,7 @@ export {
   CSharpIcon,
   CssIcon,
   EspressifIcon,
+  GitIcon,
   HtmlIcon,
   JavaIcon,
   JavaScriptIcon,

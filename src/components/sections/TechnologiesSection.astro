@@ -7,10 +7,12 @@ import { technologies } from "../../data/technologies";
 
 <section id="skills" class="w-full max-w-screen-lg flex flex-col gap-8">
   <Typography variant="title">Tecnolgias</Typography>
-  <div class="grid grid-cols-12">
+  <div class="grid grid-cols-8 gap-4">
     {
       technologies.map((tech) => (
-        <TechIcon name={tech.name} class:list={[tech.class]} />
+        <div class="p-6 bg-surface-0 shadow rounded-xl">
+          <TechIcon name={tech.name} class:list={[tech?.class]} />
+        </div>
       ))
     }
   </div>

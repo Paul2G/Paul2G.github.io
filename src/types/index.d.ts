@@ -3,6 +3,7 @@ export type TechName =
   | "CSharp"
   | "CSS"
   | "Espressif"
+  | "Git"
   | "HTML"
   | "Java"
   | "JavaScript"
