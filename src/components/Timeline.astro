@@ -26,12 +26,20 @@ const { events, class: className, cardClass } = Astro.props;
           ]}
         >
           <div class="flex items-center gap-1">
-            <h1 class="font-black text-lg">{event.title}</h1> | 
-            <a href={event.company.website} target="_blank" class="transition-colors hover:text-accent">{event.company.name}</a>
+            <h1 class="font-black text-lg">{event.title}</h1> |
+            <a
+              href={event.company.website}
+              target="_blank"
+              class="transition-colors hover:text-accent"
+            >
+              {event.company.name}
+            </a>
           </div>
           <span class="font-medium text-sm text-contrast-700">
             {dayjs(event.startDate).format("YYYY/MM/DD")} -
-            {dayjs().isSame(event.endDate, 'day') ? 'Actualidad' : dayjs(event.endDate).format("YYYY/MM/DD")}
+            {dayjs().isSame(event.endDate, "day")
+              ? "Actualidad"
+              : dayjs(event.endDate).format("YYYY/MM/DD")}
           </span>
           <p class="text-sm">{event.description}</p>
         </div>
