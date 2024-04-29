@@ -1,14 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Timeline from "../components/Timeline.astro";
 
-import { experienceTimeline } from "../data/experience-timeline";
+import ExperienceSection from "../components/sections/ExperienceSection.astro";
+import TechnologiesSection from "../components/sections/TechnologiesSection.astro";
 ---
 
 <Layout title="Paul Garcia | paul2g">
   <div class="w-full flex flex-col items-center gap-8 px-4 py-8">
-    <div class="w-full max-w-screen-lg">
-      <Timeline events={experienceTimeline} />
-    </div>
+    <ExperienceSection />
+    <TechnologiesSection />
   </div>
 </Layout>

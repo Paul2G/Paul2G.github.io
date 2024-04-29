@@ -1,0 +1,46 @@
+---
+import type { TechName } from "../types/index.d.ts";
+
+import {
+  CLangIcon,
+  CSharpIcon,
+  CssIcon,
+  EspressifIcon,
+  HtmlIcon,
+  JavaIcon,
+  JavaScriptIcon,
+  ReactIcon,
+  RemixIcon,
+  TailwindCssIcon,
+  TypeScriptIcon,
+  ViteIcon,
+  VueIcon,
+} from "./icons";
+
+const components = {
+  C: CLangIcon,
+  CSharp: CSharpIcon,
+  CSS: CssIcon,
+  HTML: HtmlIcon,
+  Espressif: EspressifIcon,
+  Java: JavaIcon,
+  JavaScript: JavaScriptIcon,
+  React: ReactIcon,
+  Remix: RemixIcon,
+  TailwindCSS: TailwindCssIcon,
+  TypeScript: TypeScriptIcon,
+  Vite: ViteIcon,
+  Vue: VueIcon,
+};
+
+interface Props {
+  name: TechName;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+const Component = components[name];
+---
+
+<Component class:list={[className]} />

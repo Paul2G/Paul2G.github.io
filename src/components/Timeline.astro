@@ -5,12 +5,14 @@ interface Props {
     date: string;
     body: string;
   }>;
+  class?: string;
+  cardClass?: string;
 }
 
-const { events } = Astro.props;
+const { events, class: className, cardClass } = Astro.props;
 ---
 
-<div class="flex flex-col">
+<div class:list={["flex flex-col", className]}>
   {
     events.map((event) => (
       <article class="group/event flex gap-2">
@@ -18,9 +20,16 @@ const { events } = Astro.props;
           <div class="size-5 rounded-full bg-primary-200 border-2 border-primary" />
           <div class="grow w-px border border-primary-50 border-dashed group-last/event:hidden" />
         </div>
-        <div class="mb-4 flex flex-col gap-1 p-4 rounded-lg shadow-sm group-last/event:mb-0 hover:shadow-md hover:shadow-primary-50">
+        <div
+          class:list={[
+            "mb-4 flex flex-col gap-1 p-4 rounded-lg shadow-sm transition-shadow group-last/event:mb-0 hover:shadow-md hover:shadow-primary-50",
+            cardClass,
+          ]}
+        >
           <h1 class="font-black">{event.title}</h1>
-          <span class="font-medium text-sm text-contrast-700">{event.date}</span>
+          <span class="font-medium text-sm text-contrast-700">
+            {event.date}
+          </span>
           <p class="text-sm">{event.body}</p>
         </div>
       </article>

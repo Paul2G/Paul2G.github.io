@@ -1,0 +1,11 @@
+---
+import Timeline from "../../components/Timeline.astro";
+import Typography from "../../components/Typography.astro";
+
+import { experienceTimeline } from "../../data/experience-timeline";
+---
+
+<section id="experience" class="w-full max-w-screen-lg flex flex-col gap-8">
+  <Typography variant="title">Experiencia laboral</Typography>
+  <Timeline events={experienceTimeline} />
+</section>
