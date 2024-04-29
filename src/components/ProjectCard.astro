@@ -16,7 +16,7 @@ const { title, description, technologies, imagePath } = Astro.props;
   <img src={imagePath} class="w-[40%] object-cover" />
   <div class="p-6">
     <h1 class="font-bold">{title}</h1>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap gap-1">
       {technologies.map((tech) => <TechIcon name={tech.name} class="w-4" />)}
     </div>
     <p class="text-sm">{description}</p>
