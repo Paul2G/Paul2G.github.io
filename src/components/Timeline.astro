@@ -1,10 +1,9 @@
 ---
+import dayjs from 'dayjs'
+import type { IExperienceEvent } from "../types";
+
 interface Props {
-  events: Array<{
-    title: string;
-    date: string;
-    body: string;
-  }>;
+  events: Array<IExperienceEvent>;
   class?: string;
   cardClass?: string;
 }
@@ -26,11 +25,12 @@ const { events, class: className, cardClass } = Astro.props;
             cardClass,
           ]}
         >
-          <h1 class="font-black">{event.title}</h1>
+          <h1 class="font-black text-lg">{event.title}</h1>
           <span class="font-medium text-sm text-contrast-700">
-            {event.date}
+            {dayjs(event.startDate).format('YYYY/MM/DD')} -
+            {dayjs(event.endDate).format('YYYY/MM/DD')}
           </span>
-          <p class="text-sm">{event.body}</p>
+          <p class="text-sm">{event.description}</p>
         </div>
       </article>
     ))
