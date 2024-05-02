@@ -12,7 +12,7 @@
   --rgb-value-primary-800: 36 48 175;
   --rgb-value-primary-900: 36 47 132;
   --rgb-value-primary-950: 22 27 80;
-  --rgb-value-primary: var(--rgb-value-primary-500);
+  --rgb-value-primary: var(--rgb-value-primary-600);
 
   --rgb-value-secondary-50: 249 246 249;
   --rgb-value-secondary-100: 245 238 245;
