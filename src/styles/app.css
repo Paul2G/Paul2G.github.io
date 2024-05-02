@@ -1,79 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    --rgb-value-primary-50: 236 244 255;
-    --rgb-value-primary-100: 221 234 255;
-    --rgb-value-primary-200: 193 216 255;
-    --rgb-value-primary-300: 156 189 255;
-    --rgb-value-primary-400: 117 151 255;
-    --rgb-value-primary-500: 84 114 255;
-    --rgb-value-primary-600: 54 72 245;
-    --rgb-value-primary-700: 41 55 217;
-    --rgb-value-primary-800: 36 48 175;
-    --rgb-value-primary-900: 36 47 132;
-    --rgb-value-primary-950: 22 27 80;
-    --rgb-value-primary: var(--rgb-value-primary-500);
+  --rgb-value-primary-50: 236 244 255;
+  --rgb-value-primary-100: 221 234 255;
+  --rgb-value-primary-200: 193 216 255;
+  --rgb-value-primary-300: 156 189 255;
+  --rgb-value-primary-400: 117 151 255;
+  --rgb-value-primary-500: 84 114 255;
+  --rgb-value-primary-600: 54 72 245;
+  --rgb-value-primary-700: 41 55 217;
+  --rgb-value-primary-800: 36 48 175;
+  --rgb-value-primary-900: 36 47 132;
+  --rgb-value-primary-950: 22 27 80;
+  --rgb-value-primary: var(--rgb-value-primary-500);
 
-    --rgb-value-secondary-50: 249 246 249;
-    --rgb-value-secondary-100: 245 238 245;
-    --rgb-value-secondary-200: 236 222 235;
-    --rgb-value-secondary-300: 221 196 220;
-    --rgb-value-secondary-400: 191 144 187;
-    --rgb-value-secondary-500: 180 128 174;
-    --rgb-value-secondary-600: 157 101 148;
-    --rgb-value-secondary-700: 133 81 123;
-    --rgb-value-secondary-800: 111 69 102;
-    --rgb-value-secondary-900: 94 61 87;
-    --rgb-value-secondary-950: 55 32 50;
-    --rgb-value-secondary: var(--rgb-value-secondary-400);
+  --rgb-value-secondary-50: 249 246 249;
+  --rgb-value-secondary-100: 245 238 245;
+  --rgb-value-secondary-200: 236 222 235;
+  --rgb-value-secondary-300: 221 196 220;
+  --rgb-value-secondary-400: 191 144 187;
+  --rgb-value-secondary-500: 180 128 174;
+  --rgb-value-secondary-600: 157 101 148;
+  --rgb-value-secondary-700: 133 81 123;
+  --rgb-value-secondary-800: 111 69 102;
+  --rgb-value-secondary-900: 94 61 87;
+  --rgb-value-secondary-950: 55 32 50;
+  --rgb-value-secondary: var(--rgb-value-secondary-400);
 
-    --rgb-value-accent-50: 254 242 242;
-    --rgb-value-accent-100: 253 231 230;
-    --rgb-value-accent-200: 251 208 208;
-    --rgb-value-accent-300: 247 170 170;
-    --rgb-value-accent-400: 242 122 125;
-    --rgb-value-accent-500: 232 75 83;
-    --rgb-value-accent-600: 212 42 58;
-    --rgb-value-accent-700: 188 31 50;
-    --rgb-value-accent-800: 150 27 46;
-    --rgb-value-accent-900: 128 27 46;
-    --rgb-value-accent-950: 71 10 19;
-    --rgb-value-accent: var(--rgb-value-accent-500);
+  --rgb-value-accent-50: 254 242 242;
+  --rgb-value-accent-100: 253 231 230;
+  --rgb-value-accent-200: 251 208 208;
+  --rgb-value-accent-300: 247 170 170;
+  --rgb-value-accent-400: 242 122 125;
+  --rgb-value-accent-500: 232 75 83;
+  --rgb-value-accent-600: 212 42 58;
+  --rgb-value-accent-700: 188 31 50;
+  --rgb-value-accent-800: 150 27 46;
+  --rgb-value-accent-900: 128 27 46;
+  --rgb-value-accent-950: 71 10 19;
+  --rgb-value-accent: var(--rgb-value-accent-500);
 
-    --rgb-value-surface-50: 247 248 249;
-    --rgb-value-surface-100: 237 239 241;
-    --rgb-value-surface-200: 215 220 224;
-    --rgb-value-surface-300: 179 190 198;
-    --rgb-value-surface-400: 138 154 166;
-    --rgb-value-surface-500: 108 126 139;
-    --rgb-value-surface-600: 86 102 115;
-    --rgb-value-surface-700: 71 83 93;
-    --rgb-value-surface-800: 61 71 79;
-    --rgb-value-surface-900: 54 62 68;
-    --rgb-value-surface-950: 36 40 45;
-    --rgb-value-surface: var(--rgb-value-surface-50);
+  --rgb-value-surface-50: 247 248 249;
+  --rgb-value-surface-100: 237 239 241;
+  --rgb-value-surface-200: 215 220 224;
+  --rgb-value-surface-300: 179 190 198;
+  --rgb-value-surface-400: 138 154 166;
+  --rgb-value-surface-500: 108 126 139;
+  --rgb-value-surface-600: 86 102 115;
+  --rgb-value-surface-700: 71 83 93;
+  --rgb-value-surface-800: 61 71 79;
+  --rgb-value-surface-900: 54 62 68;
+  --rgb-value-surface-950: 36 40 45;
+  --rgb-value-surface: var(--rgb-value-surface-50);
 
-    --rgb-value-contrast-50: 245 246 249;
-    --rgb-value-contrast-100: 232 233 241;
-    --rgb-value-contrast-200: 215 218 230;
-    --rgb-value-contrast-300: 188 192 212;
-    --rgb-value-contrast-400: 155 160 191;
-    --rgb-value-contrast-500: 131 134 174;
-    --rgb-value-contrast-600: 113 114 159;
-    --rgb-value-contrast-700: 103 101 144;
-    --rgb-value-contrast-800: 88 86 119;
-    --rgb-value-contrast-900: 73 72 96;
-    --rgb-value-contrast-950: 54 53 69;
-    --rgb-value-contrast: var(--rgb-value-contrast-900);
+  --rgb-value-contrast-50: 245 246 249;
+  --rgb-value-contrast-100: 232 233 241;
+  --rgb-value-contrast-200: 215 218 230;
+  --rgb-value-contrast-300: 188 192 212;
+  --rgb-value-contrast-400: 155 160 191;
+  --rgb-value-contrast-500: 131 134 174;
+  --rgb-value-contrast-600: 113 114 159;
+  --rgb-value-contrast-700: 103 101 144;
+  --rgb-value-contrast-800: 88 86 119;
+  --rgb-value-contrast-900: 73 72 96;
+  --rgb-value-contrast-950: 54 53 69;
+  --rgb-value-contrast: var(--rgb-value-contrast-900);
 }
 
 html {
-    font-family: system-ui sans-serif;
-    background: #fff;
-    background-size: 224px;
+  font-family: system-ui sans-serif;
+  background: #fff;
+  background-size: 224px;
 }
 
 code {
-    font-family:
-        Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono Bitstream Vera Sans Mono Courier New monospace;
+  font-family: Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono
+    Bitstream Vera Sans Mono Courier New monospace;
 }

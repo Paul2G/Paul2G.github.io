@@ -1,4 +1,3 @@
-import AstroIcon from "./AstroIcon.astro";
 import CLangIcon from "./CIcon.astro";
 import CSharpIcon from "./CSharpIcon.astro";
 import CssIcon from "./CssIcon.astro";
