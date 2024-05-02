@@ -14,14 +14,14 @@ const { events, class: className, cardClass } = Astro.props;
 <div class:list={["flex flex-col", className]}>
   {
     events.map((event) => (
-      <article class="group/event flex gap-2">
+      <article class="group/event cursor-pointer flex gap-2">
         <div class="flex flex-col items-center">
-          <div class="size-5 rounded-full bg-primary-200 border-2 border-primary" />
-          <div class="grow w-px border border-primary-50 border-dashed group-last/event:hidden" />
+          <div class="size-5 rounded-full bg-surface-200 border-2 border-surface-800 group-hover/event:bg-accent-200" />
+          <div class="grow w-px border border-surface-700 border-dashed group-last/event:hidden" />
         </div>
         <div
           class:list={[
-            "mb-4 flex flex-col gap-1 p-4 rounded-lg shadow-sm transition-shadow group-last/event:mb-0 hover:shadow-md hover:shadow-primary-50",
+            "mb-4 flex flex-col gap-1 p-4 border border-surface-950 shadow-[0.25rem_0.25rem] shadow-primary transition-shadow group-last/event:mb-0 hover:shadow-accent",
             cardClass,
           ]}
         >

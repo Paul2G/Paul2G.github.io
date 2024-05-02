@@ -1,46 +1,15 @@
 ---
-import Typography from "../Typography.astro";
+import Section from "./Section.astro";
 import TechIcon from "../TechIcon.astro";
 
 import { myTechnologies } from "../../data/technologies";
+import TechCard from "../TechCard.astro";
 ---
 
-<section id="skills" class="w-full max-w-screen-lg flex flex-col gap-8">
-  <Typography variant="title">Tecnolgias</Typography>
+<Section id="skills" title="Tecnolgias">
   <div
     class="grid grid-cols-[repeat(auto-fill,minmax(min(8rem,50vw),1fr))] gap-4"
   >
-    {
-      myTechnologies.map((tech) => (
-        <div
-          class:list={[
-            "group/tech-card relative cursor-pointer flex flex-col items-center justify-center p-5 bg-surface-0 shadow rounded-xl overflow-hidden",
-            "transition-shadow hover:shadow-md hover:shadow-primary-50",
-          ]}
-        >
-          <TechIcon
-            name={tech.name}
-            class:list={["group-hover/tech-card:saturation-0"]}
-          />
-          <a
-            href={tech.docsUrl}
-            target="_blank"
-            class:list={[
-              "absolute inset-0 flex items-center justify-center bg-primary-50/50",
-              "font-bold text-contrast-950 text-center",
-              "opacity-0 transition-opacity duration-300 group-hover/tech-card:opacity-100",
-            ]}
-          >
-            {tech.name}
-          </a>
-          <span
-            class:list={[
-              "absolute ",
-              "translate-y-20 transition-transform ease-out duration-300 group-hover/tech-card:translate-y-0",
-            ]}
-          />
-        </div>
-      ))
-    }
+    {myTechnologies.map((tech) => <TechCard {...tech} />)}
   </div>
-</section>
+</Section>

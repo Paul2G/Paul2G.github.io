@@ -21,8 +21,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        hero: ["Archivo Black", "sans-serif"],
-        main: ["Quicksand", "sans-serif"],
+        hero: ["Bebas Neue", "sans-serif"],
+        main: ["Raleway", "sans-serif"],
       },
       colors: {
         primary: {

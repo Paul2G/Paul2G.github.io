@@ -9,22 +9,23 @@ const { class: className } = Astro.props;
 ---
 
 <header
-  class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-0 shadow-sm ${className}`}
+  class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-50 border-b border-surface-950 ${className}`}
 >
-  <div class="container flex justify-between text-sm font-semibold">
-    <div class="flex items-center gap-6">
-      <h1 class="text-xl text-primary font-bold">paul2g.dev</h1>
+  <div class="container flex justify-between">
+    <div class="flex items-streetch gap-6">
+      <div class="hover:text-primary-600">
+        <a href="#" class="h-full w-full flex items-center">
+          <h1 class="text-2xl font-black">paul2g.dev</h1>
+        </a>
+      </div>
       <nav>
-        <ul class="flex gap-3">
+        <ul class="h-full flex">
           {
             headerMenu.map((item) => (
-              <li>
+              <li class="">
                 <a
                   href={item.to}
-                  class:list={[
-                    "nav-link relative",
-                    "before:w-0 before:content-[''] before:absolute before:-z-10 before:inset-0 before:bg-primary-500/20 before:transition-all hover:before:w-full",
-                  ]}
+                  class="h-full w-full flex items-center px-6 uppercase text-sm"
                 >
                   {item.label}
                 </a>
@@ -35,7 +36,7 @@ const { class: className } = Astro.props;
       </nav>
     </div>
     <div class="flex items-center gap-1">
-      <span>options</span>
+      <span> (y) </span>
     </div>
   </div>
 </header>

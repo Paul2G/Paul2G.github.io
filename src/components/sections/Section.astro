@@ -1,0 +1,15 @@
+---
+import Typography from "../Typography.astro";
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<section id={id} class="w-full max-w-screen-lg flex flex-col gap-4">
+  <Typography variant="title">{title}</Typography>
+  <slot />
+</section>

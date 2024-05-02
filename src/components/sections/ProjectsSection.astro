@@ -1,14 +1,12 @@
 ---
-import { Image } from "astro:assets";
-import Typography from "../Typography.astro";
+import Section from "./Section.astro";
+import ProjectCard from "../ProjectCard.astro";
 
 import { projects } from "../../data/projects";
-import ProjectCard from "../ProjectCard.astro";
 ---
 
-<section id="skills" class="w-full max-w-screen-lg flex flex-col gap-8">
-  <Typography variant="title">Proyectos</Typography>
+<Section id="projects" title="Proectos">
   <div class="grid grid-cols-2 gap-6">
     {projects.map((project) => <ProjectCard {...project} />)}
   </div>
-</section>
+</Section>
