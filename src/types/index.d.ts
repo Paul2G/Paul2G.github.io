@@ -36,7 +36,7 @@ export interface ITechnology {
 
 export interface IProject {
   title: string;
-  imagePath: string;
+  imageSrc?: string;
   description: string;
   technologies: Array<ITechnology>;
 }

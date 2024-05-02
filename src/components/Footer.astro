@@ -6,8 +6,10 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<footer class={`sticky top-0 w-full flex justify-center px-4 text-contrast border border-t-surface-100 ${className}`}>
-  <div class="container w-full flex justify-between">
-    <div class="flex items-center gap-6">footer</div>
+<footer
+  class={`w-full flex justify-center px-4 py-8 bg-surface-50 text-contrast border-t-2 border-t-surface-950 ${className}`}
+>
+  <div class="container w-full flex justify-center">
+    <span class="text-center">Hola</span>
   </div>
 </footer>

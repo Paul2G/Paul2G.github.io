@@ -4,11 +4,11 @@
     "prettier-plugin-tailwindcss"
   ],
   "importOrder": [
-    "^@core/(.*)$",
+    "^astro",
+    "^@\\w",
+    "(types)",
     "",
-    "^@server/(.*)$",
-    "",
-    "^@ui/(.*)$",
+    "@\\/(components)",
     "",
     "^[./]"
   ],

@@ -1,11 +1,12 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro'
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
-import '../styles/app.css'
+import "@phosphor-icons/web/fill";
+import "../styles/app.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -13,23 +14,29 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Portafolio del excelente programador Paul Garcia xd" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="font-main font-medium text-contrast-950">
-		<Header class="h-16"/>
-		<main class="min-h-[calc(100dvh-8rem)] w-full">
-			<slot />
-		</main>
-		<Footer class="h-16"/>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Portafolio del excelente programador Paul Garcia xd"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="font-main font-medium text-contrast-950">
+    <Header class="h-16" />
+    <main class="min-h-[calc(100dvh-8rem)] w-full">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+
+  <style is:global></style>
 </html>
-
-<style is:global>
-
-</style>
