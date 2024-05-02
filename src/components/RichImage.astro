@@ -1,0 +1,28 @@
+---
+interface Props {
+  src?: string;
+  alt?: string;
+  class?: string;
+}
+
+const { src, alt, class: className } = Astro.props;
+---
+
+<Fragment>
+  {
+    src ? (
+      <img src={src} alt={alt} class:list={[className]} />
+    ) : (
+      <div
+        class:list={[
+          "bg-surface-200 flex items-center justify-center",
+          className,
+        ]}
+      >
+        <slot name="icon">
+          <i class="ph-fill ph-image-broken text-3xl" />
+        </slot>
+      </div>
+    )
+  }
+</Fragment>

@@ -1,0 +1,42 @@
+---
+import type { HTMLTag } from "astro/types";
+
+interface Props {
+  variant?: "hero" | "title" | "subtitle" | "paragraph";
+  tag?: HTMLTag;
+  class?: string;
+}
+
+const variants = {
+  hero: {
+    tag: "h1",
+    className: "text-balance text-7xl font-hero",
+  },
+  title: {
+    tag: "h1",
+    className: "text-4xl font-hero",
+  },
+  subtitle: {
+    tag: "h2",
+    className: "",
+  },
+  paragraph: {
+    tag: "p",
+    className: "",
+  },
+  text: {
+    tag: "span",
+    className: "",
+  },
+};
+
+const {
+  variant = "paragraph",
+  tag: Element = variants[variant].tag,
+  class: className,
+} = Astro.props;
+---
+
+<Element class:list={[variants[variant].className, className]}>
+  <slot />
+</Element>

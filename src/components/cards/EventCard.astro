@@ -1,0 +1,32 @@
+---
+import type { IExperienceEvent } from "@/types";
+import dayjs from "dayjs";
+
+import Card from "./Card.astro";
+
+type Props = IExperienceEvent;
+
+const { title, description, company, startDate, endDate } = Astro.props;
+---
+
+<Card class="mb-4 flex flex-col gap-1 p-6 group-last/event:mb-0">
+  <div class="flex items-center gap-1">
+    <h1 class="font-black text-lg">{title}</h1> |
+    <a
+      href={company.website}
+      target="_blank"
+      class="transition-colors font-semibold hover:text-accent"
+    >
+      {company.name}
+    </a>
+  </div>
+  <span class="font-medium text-sm text-contrast-700">
+    {dayjs(startDate).format("YYYY/MM/DD")} -
+    {
+      dayjs().isSame(endDate, "day")
+        ? "Actualidad"
+        : dayjs(endDate).format("YYYY/MM/DD")
+    }
+  </span>
+  <p class="text-sm">{description}</p>
+</Card>

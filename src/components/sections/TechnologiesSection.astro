@@ -1,0 +1,19 @@
+---
+import { myTechnologies } from "../../data/technologies";
+import TechCard from "../cards/TechCard.astro";
+import Section from "./Section.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Section id="techs" title="Tecnologias" class={className}>
+  <div
+    class="grid grid-cols-[repeat(auto-fill,minmax(min(8rem,50vw),1fr))] gap-4"
+  >
+    {myTechnologies.map((tech) => <TechCard {...tech} />)}
+  </div>
+</Section>
