@@ -2,9 +2,15 @@
 import { projects } from "../../data/projects";
 import ProjectCard from "../cards/ProjectCard.astro";
 import Section from "./Section.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<Section id="projects" title="Proyectos">
+<Section id="projects" title="Proyectos" class={className}>
   <div class="grid grid-cols-2 gap-6">
     {projects.map((project) => <ProjectCard {...project} />)}
   </div>

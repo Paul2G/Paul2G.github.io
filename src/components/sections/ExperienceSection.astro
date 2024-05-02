@@ -1,10 +1,15 @@
 ---
-import Section from "./Section.astro";
 import Timeline from "../../components/Timeline.astro";
-
 import { experienceEvents } from "../../data/experience";
+import Section from "./Section.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<Section id="experience" title="Experiencia laboral">
+<Section id="experience" title="Experiencia laboral" class={className}>
   <Timeline events={experienceEvents} />
 </Section>

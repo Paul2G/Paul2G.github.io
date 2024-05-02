@@ -4,12 +4,16 @@ import Typography from "../Typography.astro";
 interface Props {
   id: string;
   title: string;
+  class?: string;
 }
 
-const { title, id } = Astro.props;
+const { title, id, class: className } = Astro.props;
 ---
 
-<section id={id} class="w-full max-w-screen-lg flex flex-col gap-4">
+<section
+  id={id}
+  class:list={["w-full max-w-screen-lg flex flex-col gap-4", className]}
+>
   <Typography variant="title">{title}</Typography>
   <slot />
 </section>

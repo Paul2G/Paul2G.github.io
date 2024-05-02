@@ -1,5 +1,5 @@
 ---
-import { headerMenu } from "../data/navigation";
+import { headerMenuItems } from "../data/navigation";
 
 interface Props {
   class?: string;
@@ -9,6 +9,7 @@ const { class: className } = Astro.props;
 ---
 
 <header
+  id="header"
   class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-50 border-b-2 border-surface-950 ${className}`}
 >
   <div class="container flex justify-between">
@@ -21,11 +22,14 @@ const { class: className } = Astro.props;
       <nav>
         <ul class="h-full flex">
           {
-            headerMenu.map((item) => (
-              <li class="font-semibold transition-colors hover:bg-primary hover:text-surface-100">
+            headerMenuItems.map((item) => (
+              <li>
                 <a
                   href={item.to}
-                  class="h-full w-full flex items-center px-6 uppercase text-sm"
+                  class:list={[
+                    "h-full w-full flex items-center px-6 font-semibold uppercase text-sm",
+                    "transition-colors hover:bg-primary-200",
+                  ]}
                 >
                   {item.label}
                 </a>
@@ -40,3 +44,34 @@ const { class: className } = Astro.props;
     </div> -->
   </div>
 </header>
+
+<script>
+  import { headerMenuItems } from "@/data/navigation";
+  import { debounce, isInViewport } from "@/utils";
+
+  const header = document.getElementById("header");
+
+  // Get sections
+  const sections = headerMenuItems.map((item) =>
+    document.querySelector(item.to)
+  );
+
+  const highlightElement = debounce(function () {
+    const sectionInViewport = sections.find((section) =>
+      isInViewport(section, false)
+    );
+    if (!sectionInViewport?.id) return;
+
+    sections.forEach((section) => {
+      const navlink = document.querySelector(`a[href='#${section?.id}']`);
+      navlink?.classList?.remove("!bg-primary", "!text-surface-100");
+    });
+
+    const navlink = document.querySelector(
+      `a[href='#${sectionInViewport?.id}']`
+    );
+    navlink?.classList?.add("!bg-primary", "!text-surface-100");
+  }, 30);
+
+  window.addEventListener("scroll", highlightElement);
+</script>
