@@ -9,11 +9,11 @@ const { class: className } = Astro.props;
 ---
 
 <header
-  class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-50 border-b border-surface-950 ${className}`}
+  class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-50 border-b-2 border-surface-950 ${className}`}
 >
   <div class="container flex justify-between">
     <div class="flex items-streetch gap-6">
-      <div class="hover:text-primary-600">
+      <div class="transition-colors hover:text-primary">
         <a href="#" class="h-full w-full flex items-center">
           <h1 class="text-2xl font-black">paul2g.dev</h1>
         </a>
@@ -22,7 +22,7 @@ const { class: className } = Astro.props;
         <ul class="h-full flex">
           {
             headerMenu.map((item) => (
-              <li class="">
+              <li class="font-semibold transition-colors hover:bg-primary hover:text-surface-100">
                 <a
                   href={item.to}
                   class="h-full w-full flex items-center px-6 uppercase text-sm"
