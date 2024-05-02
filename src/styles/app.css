@@ -52,19 +52,6 @@
   --rgb-value-surface-900: 54 62 68;
   --rgb-value-surface-950: 36 40 45;
   --rgb-value-surface: var(--rgb-value-surface-50);
-
-  --rgb-value-contrast-50: 245 246 249;
-  --rgb-value-contrast-100: 232 233 241;
-  --rgb-value-contrast-200: 215 218 230;
-  --rgb-value-contrast-300: 188 192 212;
-  --rgb-value-contrast-400: 155 160 191;
-  --rgb-value-contrast-500: 131 134 174;
-  --rgb-value-contrast-600: 113 114 159;
-  --rgb-value-contrast-700: 103 101 144;
-  --rgb-value-contrast-800: 88 86 119;
-  --rgb-value-contrast-900: 73 72 96;
-  --rgb-value-contrast-950: 54 53 69;
-  --rgb-value-contrast: var(--rgb-value-contrast-900);
 }
 
 html {
@@ -74,6 +61,5 @@ html {
 }
 
 code {
-  font-family: Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono
-    Bitstream Vera Sans Mono Courier New monospace;
+  font-family: Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono Bitstream Vera Sans Mono Courier New monospace;
 }
