@@ -4,14 +4,24 @@ import type { HTMLTag } from "astro/types";
 interface Props {
   class?: string;
   tag?: HTMLTag;
+  interactive?: boolean;
 }
 
-const { class: className, tag: Element = "div", ...restOfProps } = Astro.props;
+const {
+  class: className,
+  tag: Element = "div",
+  interactive = true,
+  ...restOfProps
+} = Astro.props;
 ---
 
 <Element
   class:list={[
-    "cursor-pointer border border-surface-950 shadow-[0.25rem_0.25rem] shadow-primary hover:shadow-accent",
+    "cursor-pointer border border-surface-950 shadow-[0.2rem_0.2rem] shadow-surface-500",
+    {
+      "transition-shadow hover:shadow-primary hover:shadow-[0.3rem_0.3rem]":
+        interactive,
+    },
     className,
   ]}
   {...restOfProps}

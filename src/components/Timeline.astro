@@ -1,6 +1,6 @@
 ---
-import dayjs from "dayjs";
 import type { IExperienceEvent } from "../types";
+import EventCard from "./EventCard.astro";
 
 interface Props {
   events: Array<IExperienceEvent>;
@@ -19,30 +19,7 @@ const { events, class: className, cardClass } = Astro.props;
           <div class="size-5 rounded-full bg-surface-200 border-2 border-surface-800 group-hover/event:bg-accent-200" />
           <div class="grow w-px border border-surface-700 border-dashed group-last/event:hidden" />
         </div>
-        <div
-          class:list={[
-            "mb-4 flex flex-col gap-1 p-4 border border-surface-950 shadow-[0.25rem_0.25rem] shadow-primary transition-shadow group-last/event:mb-0 hover:shadow-accent",
-            cardClass,
-          ]}
-        >
-          <div class="flex items-center gap-1">
-            <h1 class="font-black text-lg">{event.title}</h1> |
-            <a
-              href={event.company.website}
-              target="_blank"
-              class="transition-colors hover:text-accent"
-            >
-              {event.company.name}
-            </a>
-          </div>
-          <span class="font-medium text-sm text-contrast-700">
-            {dayjs(event.startDate).format("YYYY/MM/DD")} -
-            {dayjs().isSame(event.endDate, "day")
-              ? "Actualidad"
-              : dayjs(event.endDate).format("YYYY/MM/DD")}
-          </span>
-          <p class="text-sm">{event.description}</p>
-        </div>
+        <EventCard {...event} />
       </article>
     ))
   }

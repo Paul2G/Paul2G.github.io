@@ -12,11 +12,11 @@ const { name, docsUrl, color } = Astro.props;
   class:list={["group/tech-card relative !aspect-square p-6 overflow-hidden"]}
 >
   <a href={docsUrl} target="_blank">
-    <TechIcon name={name} />
+    <TechIcon name={name} class:list={["aspect-square"]} />
   </a>
   <div
     class:list={[
-      "absolute bottom-0 z-10 w-full -translate-x-6 translate-y-[100%] transition-all group-hover/tech-card:translate-y-0",
+      "hidden absolute bottom-0 left-0 z-10 w-full translate-y-[100%] transition-all group-hover/tech-card:translate-y-0",
       "text-center bg-accent-500/20",
     ]}
   >
