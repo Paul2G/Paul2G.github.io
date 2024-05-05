@@ -69,7 +69,7 @@ export default {
         },
         surface: {
           DEFAULT: withOpacityValue("--rgb-value-surface"),
-          0: "rgb(255 255 255 / <alpha-value>)",
+          0: withOpacityValue("--rgb-value-surface-0"),
           50: withOpacityValue("--rgb-value-surface-50"),
           100: withOpacityValue("--rgb-value-surface-100"),
           200: withOpacityValue("--rgb-value-surface-200"),
@@ -81,6 +81,7 @@ export default {
           800: withOpacityValue("--rgb-value-surface-800"),
           900: withOpacityValue("--rgb-value-surface-900"),
           950: withOpacityValue("--rgb-value-surface-950"),
+          1000: withOpacityValue("--rgb-value-surface-1000"),
         },
         "surface-contrast": withOpacityValue("--rgb-value-surface-contrast"),
       },

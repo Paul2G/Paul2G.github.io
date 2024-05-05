@@ -23,12 +23,12 @@ const { class: className } = Astro.props;
         <ul class="h-full flex">
           {
             headerMenuItems.map((item) => (
-              <li>
+              <li class="border-s-2 border-surface-950 last:border-e-2">
                 <a
                   href={item.to}
                   class:list={[
-                    "h-full w-full flex items-center px-6 font-semibold uppercase text-sm",
-                    "transition-colors hover:bg-primary-200",
+                    "group h-full w-full flex items-center px-6 uppercase text-sm",
+                    "transition-colors hover:bg-primary hover:text-surface-50",
                   ]}
                 >
                   {item.label}
@@ -64,13 +64,13 @@ const { class: className } = Astro.props;
 
     sections.forEach((section) => {
       const navlink = document.querySelector(`a[href='#${section?.id}']`);
-      navlink?.classList?.remove("!bg-primary", "!text-surface-100");
+      navlink?.classList?.remove("!bg-surface-950", "!text-surface-100");
     });
 
     const navlink = document.querySelector(
       `a[href='#${sectionInViewport?.id}']`
     );
-    navlink?.classList?.add("!bg-primary", "!text-surface-100");
+    navlink?.classList?.add("!bg-surface-950", "!text-surface-100");
   }, 30);
 
   window.addEventListener("scroll", highlightElement);

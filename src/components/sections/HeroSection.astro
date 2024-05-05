@@ -1,6 +1,4 @@
 ---
-import Typography from "../Typography.astro";
-
 interface Props {
   class?: string;
 }
@@ -15,9 +13,12 @@ const { class: className } = Astro.props;
     className,
   ]}
 >
-  <div class="container flex items-center py-32">
-    <Typography variant="hero" class="basis-1/2"
-      >Ingeniero en computacion</Typography
-    >
+  <div class="container flex flex-col py-32">
+    <span class="font-hero text-3xl">Lorem</span>
+    <h1 class="font-hero text-7xl text-primary uppercase">ipsum dolor</h1>
+    <p class="font-main text-surface-700">
+      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua.
+    </p>
   </div>
 </div>

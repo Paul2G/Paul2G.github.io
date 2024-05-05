@@ -12,8 +12,9 @@ const { title, id, class: className } = Astro.props;
 
 <section
   id={id}
-  class:list={["w-full max-w-screen-lg flex flex-col gap-8", className]}
+  class:list={["w-full max-w-screen-lg flex flex-col gap-4", className]}
 >
   <Typography variant="title">{title}</Typography>
+  <div class="h-[2px] w-full bg-surface-950"></div>
   <slot />
 </section>
