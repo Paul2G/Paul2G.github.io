@@ -17,7 +17,7 @@ const { events, class: className, cardClass } = Astro.props;
     events.map((event) => (
       <article class="group/event cursor-pointer flex gap-2">
         <div class="flex flex-col items-center">
-          <div class="size-5 bg-surface-200 border-2 border-surface-950 group-hover/event:bg-accent-200" />
+          <div class="size-5 bg-surface-200 border-2 border-surface-950 group-hover/event:bg-primary-200" />
           <div class="grow w-px border border-surface-700 border-dashed group-last/event:hidden" />
         </div>
         <EventCard {...event} />

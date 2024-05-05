@@ -77,17 +77,17 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--rgb-value-surface-500));
+  background: rgb(var(--rgb-value-surface-950));
   border: 2px solid rgb(var(--rgb-value-surface-950));
   border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--rgb-value-surface-950));
+  background: rgb(var(--rgb-value-primary));
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgb(var(--rgb-value-surface-950));
+  background: rgb(var(--rgb-value-surface-500));
 }
 
 ::-webkit-scrollbar-track {

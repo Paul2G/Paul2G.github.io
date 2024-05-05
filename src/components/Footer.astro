@@ -1,4 +1,6 @@
 ---
+import { socialAccounts } from "@/data/misc";
+
 interface Props {
   class?: string;
 }
@@ -7,9 +9,20 @@ const { class: className } = Astro.props;
 ---
 
 <footer
-  class={`w-full flex justify-center px-4 py-8 bg-surface-50 text-contrast border-t-2 border-t-surface-950 ${className}`}
+  class={`w-full flex justify-center bg-surface-950 text-surface-50 border-t-2 border-t-surface-950 ${className}`}
 >
-  <div class="container w-full flex justify-center">
-    <span class="text-center">Hola</span>
+  <div class="container w-full flex justify-center gap-2 px-4 py-8">
+    {
+      socialAccounts.map(({ name, url, icon }) => (
+        <a
+          href={url}
+          target="_blank"
+          class="group hover:text-primary-200 after:content-['|'] last:after:content-['']"
+        >
+          <i class={icon} />
+          <span> {name} </span>
+        </a>
+      ))
+    }
   </div>
 </footer>

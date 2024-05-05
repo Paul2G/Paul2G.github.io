@@ -40,3 +40,10 @@ export interface IProject {
   description: string;
   technologies: Array<ITechnology>;
 }
+
+export interface ISocial {
+  name: string;
+  url: string | URL;
+  // Phosphor icon xd
+  icon: string;
+}
