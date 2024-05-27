@@ -1,0 +1,17 @@
+---
+import { projects } from "../../data/projects";
+import ProjectCard from "../cards/ProjectCard.astro";
+import Section from "./Section.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<Section id="formation" title="Educación" class={className}>
+  <div class="h-[30vh]">
+
+  </div>
+</Section>
