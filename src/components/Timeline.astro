@@ -20,7 +20,7 @@ const { events, class: className, cardClass } = Astro.props;
           <div class="size-5 bg-surface-200 border-2 border-surface-950 group-hover/event:bg-primary-200" />
           <div class="grow w-px border border-surface-700 border-dashed group-last/event:hidden" />
         </div>
-        <EventCard {...event} />
+        <EventCard class:list={["grow", cardClass]} {...event} />
       </article>
     ))
   }
