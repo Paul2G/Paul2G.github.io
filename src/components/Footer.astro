@@ -11,7 +11,9 @@ const { class: className } = Astro.props;
 <footer
   class={`w-full flex justify-center bg-surface-950 text-surface-50 border-t-2 border-t-surface-950 ${className}`}
 >
-  <div class="container w-full flex justify-center gap-2 px-4 py-8">
+  <div
+    class="container w-full flex items-center justify-center gap-2 px-4 py-8"
+  >
     {
       socialAccounts.map(({ name, url, icon }) => (
         <a

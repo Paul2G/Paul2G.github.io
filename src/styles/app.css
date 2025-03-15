@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Staatliches&display=swap');
 
 :root {
   --rgb-value-primary-50: 236 244 255;
@@ -40,7 +40,7 @@
   --rgb-value-accent-950: 71 10 19;
   --rgb-value-accent: var(--rgb-value-accent-500);
 
-  --rgb-value-surface-50: 255 255 255;
+  --rgb-value-surface-0: 255 255 255;
   --rgb-value-surface-50: 247 248 249;
   --rgb-value-surface-100: 237 239 241;
   --rgb-value-surface-200: 215 220 224;
@@ -63,7 +63,25 @@ html {
 }
 
 code {
-  font-family: Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono Bitstream Vera Sans Mono Courier New monospace;
+  font-family: Menlo Monaco Lucida Console Liberation Mono DejaVu Sans Mono
+    Bitstream Vera Sans Mono Courier New monospace;
+}
+
+.bg-main {
+  background-color: #fceed9;
+  opacity: 0.8;
+  background-image:
+    linear-gradient(135deg, #fff7e4 25%, transparent 25%),
+    linear-gradient(225deg, #fff7e4 25%, transparent 25%),
+    linear-gradient(45deg, #fff7e4 25%, transparent 25%),
+    linear-gradient(315deg, #fff7e4 25%, #fceed9 25%);
+  background-position:
+    22px 0,
+    22px 0,
+    0 0,
+    0 0;
+  background-size: 44px 44px;
+  background-repeat: repeat;
 }
 
 ::-webkit-scrollbar {

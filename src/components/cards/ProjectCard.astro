@@ -1,33 +1,32 @@
 ---
-import type { ITechnology } from "@/types";
+import type { IProject } from "@/types";
 
 import Card from "@/components/cards/Card.astro";
 import RichImage from "@/components/RichImage.astro";
 import TechIcon from "@/components/TechIcon.astro";
 
-interface Props {
-  title: string;
-  description: string;
-  technologies: Array<ITechnology>;
-  imageSrc?: string;
-  class?: string;
-}
+import Markdown from "../Markdown.astro";
+
+type Props = IProject & { class?: string };
 
 const {
   title,
   description,
   technologies,
   imageSrc,
+  repo,
   class: className,
+  cardColor,
 } = Astro.props;
 ---
 
 <Card
   tag="article"
   class:list={[
-    "group/project-card flex flex-col items-center sm:flex-row",
+    "group/project-card flex flex-col items-center overflow-hidden sm:flex-row",
     className,
   ]}
+  color={cardColor}
 >
   <RichImage
     src={imageSrc}
@@ -38,6 +37,8 @@ const {
     <div class="flex flex-wrap gap-1">
       {technologies.map((tech) => <TechIcon name={tech.name} class="w-4" />)}
     </div>
-    <p class="text-sm">{description}</p>
+    <Markdown class="prose-sm">
+      {description}
+    </Markdown>
   </div>
 </Card>

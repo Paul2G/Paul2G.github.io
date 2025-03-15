@@ -1,6 +1,5 @@
 ---
-import { projects } from "../../data/projects";
-import ProjectCard from "../cards/ProjectCard.astro";
+import Markdown from "../Markdown.astro";
 import Section from "./Section.astro";
 
 interface Props {
@@ -11,7 +10,7 @@ const { class: className } = Astro.props;
 ---
 
 <Section id="formation" title="Educación" class={className}>
-  <div class="h-[30vh]">
-
-  </div>
+  <Markdown class:list={["prose-xs"]}>
+    {`contenido`}
+  </Markdown>
 </Section>

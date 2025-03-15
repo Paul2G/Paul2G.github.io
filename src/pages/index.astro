@@ -1,5 +1,4 @@
 ---
-import FormationSection from "@/components/sections/FormationSection.astro";
 import ExperienceSection from "../components/sections/ExperienceSection.astro";
 import HeroSection from "../components/sections/HeroSection.astro";
 import ProjectsSection from "../components/sections/ProjectsSection.astro";
@@ -8,13 +7,10 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Paul Garcia | paul2g">
-  <HeroSection />
-  <div
-    class="bg-gradient-to-br from-surface-50 to-surface-100 w-full flex flex-col items-center px-4 pb-16"
-  >
+  <!--<HeroSection />-->
+  <div class="w-full flex flex-col items-center mb-24">
     <ExperienceSection class="pt-16" />
     <ProjectsSection class="pt-16" />
-    <FormationSection class="pt-16"/>
     <TechnologiesSection class="pt-16" />
   </div>
 </Layout>

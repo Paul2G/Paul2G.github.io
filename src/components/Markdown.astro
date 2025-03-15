@@ -5,17 +5,14 @@ import type { HTMLTag } from "astro/types";
 interface Props {
   class?: string;
   tag?: HTMLTag;
-  content: string;
 }
 
-interface Slots {
-  markdown: string;
-}
+const content = await Astro.slots.render("default");
 
-const { class: className, tag: Element = "div", content = "" } = Astro.props;
+const { class: className, tag: Element = "div" } = Astro.props;
 
 const converter = new showdown.Converter();
 const html = converter.makeHtml(content);
 ---
 
-<Element class:list={[className]} set:html={html} />
+<Element class:list={["prose-ul:list-disc", className]} set:html={html} />

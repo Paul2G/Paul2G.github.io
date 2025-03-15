@@ -26,6 +26,7 @@ export interface IExperienceEvent {
   company: ICompany;
   startDate: Date;
   endDate: Date;
+  cardColor: string;
 }
 
 export interface ITechnology {
@@ -39,6 +40,8 @@ export interface IProject {
   imageSrc?: string;
   description: string;
   technologies: Array<ITechnology>;
+  repo?: string;
+  cardColor?: string;
 }
 
 export interface ISocial {

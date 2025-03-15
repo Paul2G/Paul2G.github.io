@@ -21,8 +21,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        hero: ["Archivo Black", "sans-serif"],
-        main: ["Bitter", "sans-serif"],
+        hero: ["Staatliches", "sans-serif"],
+        main: ["Space Mono", "monospace"],
       },
       colors: {
         primary: {

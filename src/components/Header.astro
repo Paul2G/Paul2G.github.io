@@ -1,5 +1,6 @@
 ---
 import { headerMenuItems } from "../data/navigation";
+import Card from "./cards/Card.astro";
 
 interface Props {
   class?: string;
@@ -10,39 +11,42 @@ const { class: className } = Astro.props;
 
 <header
   id="header"
-  class={`sticky top-0 z-[100] w-full flex justify-center px-4 bg-surface-50 border-b-2 border-surface-950 ${className}`}
+  class="sticky top-0 z-[100] max-w-screen-2xl mx-auto p-4 bg-transparent"
 >
-  <div class="container flex justify-between">
-    <div class="flex items-streetch gap-6">
-      <div class="transition-colors hover:text-primary">
-        <a href="#" class="h-full w-full flex items-center">
-          <h1 class="text-2xl font-black">paul2g.dev</h1>
-        </a>
+  <Card>
+    <div class="container flex justify-between">
+      <div class="flex items-streetch">
+        <div class="transition-colors hover:text-primary p-6">
+          <a href="#" class="h-full w-full flex items-center">
+            <h1 class="text-2xl font-black">paul2g.dev</h1>
+          </a>
+        </div>
+        <nav class="max-sm:hidden">
+          <ul class="ps-6 h-full flex gap-6">
+            {
+              headerMenuItems.map((item) => (
+                <li class="h-full w-full flex items-center">
+                  <a
+                    href={item.to}
+                    class:list={[
+                      "group text-sm font-semibold px-3 py-1 rounded-md border-2 border-transparent shadow-transparent shadow-[0.2rem_0.2rem]",
+                      "transition-all hover:bg-[var(--color)] hover:border-surface-1000 hover:text-surface-1000 hover:shadow-surface-800",
+                    ]}
+                    style={{ "--color": item.linkColor }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
       </div>
-      <nav class="max-sm:hidden">
-        <ul class="h-full flex">
-          {
-            headerMenuItems.map((item) => (
-              <li class="border-s-2 border-surface-950 last:border-e-2">
-                <a
-                  href={item.to}
-                  class:list={[
-                    "group h-full w-full flex items-center px-6 uppercase text-sm",
-                    "transition-colors hover:bg-primary hover:text-surface-50",
-                  ]}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <!--<div class="flex items-center gap-1">-->
+      <!--  <span> (y) </span>-->
+      <!--</div>-->
     </div>
-    <!-- <div class="flex items-center gap-1">
-      <span> (y) </span>
-    </div> -->
-  </div>
+  </Card>
 </header>
 
 <script>
@@ -53,24 +57,34 @@ const { class: className } = Astro.props;
 
   // Get sections
   const sections = headerMenuItems.map((item) =>
-    document.querySelector(item.to)
+    document.querySelector(item.to),
   );
 
   const highlightElement = debounce(function () {
     const sectionInViewport = sections.find((section) =>
-      isInViewport(section, false)
+      isInViewport(section, false),
     );
     if (!sectionInViewport?.id) return;
 
     sections.forEach((section) => {
-      const navlink = document.querySelector(`a[href='#${section?.id}']`);
-      navlink?.classList?.remove("!bg-surface-950", "!text-surface-100");
+      const navLink = document.querySelector(`a[href='#${section?.id}']`);
+      navLink?.classList?.remove(
+        "bg-[var(--color)]",
+        "!text-surface-1000",
+        "!border-2",
+        "!border-surface-1000",
+      );
     });
 
-    const navlink = document.querySelector(
-      `a[href='#${sectionInViewport?.id}']`
+    const navLink = document.querySelector(
+      `a[href='#${sectionInViewport?.id}']`,
     );
-    navlink?.classList?.add("!bg-surface-950", "!text-surface-100");
+    navLink?.classList?.add(
+      "bg-[var(--color)]",
+      "!text-surface-1000",
+      "!border-2",
+      "!border-surface-1000",
+    );
   }, 30);
 
   window.addEventListener("scroll", highlightElement);

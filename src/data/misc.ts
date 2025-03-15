@@ -11,4 +11,9 @@ export const socialAccounts: Array<ISocial> = [
     url: "https://www.linkedin.com/in/paul2g/",
     icon: "ph-fill ph-linkedin-logo",
   },
+  {
+    name: "Email",
+    url: "mailto:pggaleana@gmail.com",
+    icon: "ph-fill ph-envelope",
+  },
 ];

@@ -1,6 +1,5 @@
 export const headerMenuItems = [
-  { label: "Experiencia", to: "#experience" },
-  { label: "Projectos", to: "#projects" }, 
-  { label: "Educación", to: "#formation" },
-  { label: "Tecnologias", to: "#techs" },
-];
+  { label: "Experiencia", to: "#experience", linkColor: "#ccd4ff" },
+  { label: "Projectos", to: "#projects", linkColor: "#eeccff" },
+  { label: "Tecnologias", to: "#techs", linkColor: "#fff8cc" },
+] as const;

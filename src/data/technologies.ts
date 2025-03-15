@@ -1,6 +1,6 @@
 import type { ITechnology, TechName } from "../types/index.d.ts";
 
-export const technologies: Record<TechName, ITechnology> = {
+export const technology: Record<TechName, ITechnology> = {
   Astro: {
     name: "Astro",
     docsUrl: "https://docs.astro.build/en/getting-started/",
@@ -80,18 +80,18 @@ export const technologies: Record<TechName, ITechnology> = {
 };
 
 export const myTechnologies: Array<ITechnology> = [
-  technologies.Git,
-  technologies.React,
-  technologies.Remix,
-  technologies.Vue,
-  technologies.Astro,
-  technologies.JavaScript,
-  technologies.TypeScript,
-  technologies.TailwindCSS,
-  technologies.CSS,
-  technologies.HTML,
-  technologies.C,
-  technologies.Espressif,
-  technologies.Java,
-  technologies.CSharp,
+  technology.Git,
+  technology.React,
+  technology.Remix,
+  technology.Vue,
+  technology.Astro,
+  technology.JavaScript,
+  technology.TypeScript,
+  technology.TailwindCSS,
+  technology.CSS,
+  technology.HTML,
+  technology.C,
+  technology.Espressif,
+  technology.Java,
+  technology.CSharp,
 ];
