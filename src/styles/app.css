@@ -60,6 +60,7 @@ html {
   font-family: system-ui sans-serif;
   background: #fff;
   background-size: 224px;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -82,6 +83,12 @@ code {
     0 0;
   background-size: 44px 44px;
   background-repeat: repeat;
+}
+
+.bg-modal {
+  background-color: #727272;
+  opacity: 0.3;
+  background: repeating-linear-gradient( -45deg, #000000, #000000 3.5px, #727272 3.5px, #727272 17.5px );
 }
 
 ::-webkit-scrollbar {
