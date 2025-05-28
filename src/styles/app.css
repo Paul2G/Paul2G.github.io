@@ -87,7 +87,7 @@ code {
 
 .bg-modal {
   background-color: #727272;
-  opacity: 0.3;
+  opacity: 1;
   background: repeating-linear-gradient( -45deg, #000000, #000000 3.5px, #727272 3.5px, #727272 17.5px );
 }
 
