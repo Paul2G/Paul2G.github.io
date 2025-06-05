@@ -1,0 +1,80 @@
+---
+const education = [
+  {
+    degree: "Master of Science in Computer Science",
+    school: "Stanford University",
+    period: "2018 - 2020",
+    description: "Specialized in Artificial Intelligence and Machine Learning. Thesis focused on developing novel deep learning architectures for computer vision applications.",
+    achievements: [
+      "Published 2 research papers in top-tier conferences",
+      "Teaching Assistant for Advanced Algorithms course",
+      "4.0 GPA"
+    ]
+  },
+  {
+    degree: "Bachelor of Science in Software Engineering",
+    school: "Massachusetts Institute of Technology",
+    period: "2014 - 2018",
+    description: "Core focus on software development, algorithms, and systems design. Minor in Mathematics.",
+    achievements: [
+      "Dean's List all semesters",
+      "Led university hackathon team to first place",
+      "Undergraduate research assistant in distributed systems lab"
+    ]
+  }
+];
+---
+
+<section id="education" class="section py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title font-mono">
+      <span class="text-primary">_</span>Education
+    </h2>
+    
+    <div class="space-y-12">
+      {education.map((edu) => (
+        <div class="border-4 border-secondary dark:border-tertiary p-6 hover:border-primary transition-colors duration-300">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h3 class="text-xl font-bold font-mono">{edu.degree}</h3>
+            <span class="font-mono text-primary">{edu.period}</span>
+          </div>
+          
+          <div class="mb-4">
+            <span class="font-mono text-lg">{edu.school}</span>
+          </div>
+          
+          <p class="mb-4 leading-relaxed">{edu.description}</p>
+          
+          <ul class="list-none space-y-2">
+            {edu.achievements.map((achievement) => (
+              <li class="flex items-start">
+                <span class="text-primary mr-2">▹</span>
+                <span>{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from("#education .border-4", {
+      scrollTrigger: {
+        trigger: "#education",
+        start: "top 80%"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2
+    });
+  });
+</script>

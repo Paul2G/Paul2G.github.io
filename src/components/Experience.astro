@@ -1,0 +1,91 @@
+---
+const experience = [
+  {
+    position: "Senior Software Engineer",
+    company: "Google",
+    period: "2020 - Present",
+    description: "Leading a team of developers working on Google Cloud Platform's infrastructure services.",
+    achievements: [
+      "Architected and implemented a new microservices system that reduced latency by 40%",
+      "Mentored 5 junior developers and led technical interviews",
+      "Introduced new testing practices that increased code coverage by 25%"
+    ]
+  },
+  {
+    position: "Software Engineer",
+    company: "Microsoft",
+    period: "2018 - 2020",
+    description: "Worked on the Azure DevOps team, focusing on CI/CD pipeline improvements and developer tooling.",
+    achievements: [
+      "Developed new features for Azure Pipelines used by millions of developers",
+      "Reduced build times by 30% through optimization of build agents",
+      "Contributed to the open-source Azure DevOps node SDK"
+    ]
+  },
+  {
+    position: "Software Development Intern",
+    company: "Amazon",
+    period: "Summer 2017",
+    description: "Internship with the AWS Lambda team, working on serverless computing solutions.",
+    achievements: [
+      "Built a monitoring dashboard for Lambda functions",
+      "Implemented new features for the Lambda console",
+      "Received return offer for full-time position"
+    ]
+  }
+];
+---
+
+<section id="experience" class="section py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title font-mono">
+      <span class="text-primary">_</span>Experience
+    </h2>
+    
+    <div class="space-y-12">
+      {experience.map((exp) => (
+        <div class="border-4 border-secondary dark:border-tertiary p-6 hover:border-primary transition-colors duration-300">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <h3 class="text-xl font-bold font-mono">{exp.position}</h3>
+            <span class="font-mono text-primary">{exp.period}</span>
+          </div>
+          
+          <div class="mb-4">
+            <span class="font-mono text-lg">{exp.company}</span>
+          </div>
+          
+          <p class="mb-4 leading-relaxed">{exp.description}</p>
+          
+          <ul class="list-none space-y-2">
+            {exp.achievements.map((achievement) => (
+              <li class="flex items-start">
+                <span class="text-primary mr-2">▹</span>
+                <span>{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from("#experience .border-4", {
+      scrollTrigger: {
+        trigger: "#experience",
+        start: "top 80%"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2
+    });
+  });
+</script>

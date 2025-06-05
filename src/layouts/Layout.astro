@@ -1,42 +1,141 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-
-import "@phosphor-icons/web/fill";
-import "../styles/app.css";
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/space-mono';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Lorem ipsum dolor amet" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Portafolio del excelente programador Paul Garcia xd"
-    />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
-    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="font-main text-contrast-950 text-lg bg-main">
-    <Header class="h-16" />
-    <main class="min-h-[calc(100dvh-8rem)] w-full">
-      <slot />
-    </main>
-    <Footer />
+  <body class="bg-tertiary dark:bg-secondary text-secondary dark:text-tertiary">
+    <div class="wrapper">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    
+    <script>
+      // Check for dark mode preference
+      const isDarkMode = localStorage.getItem('darkMode') === 'true' || 
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </body>
-
-  <style is:global></style>
 </html>
+
+<style is:global>
+  :root {
+    --primary: #0066FF;
+    --secondary: #121212;
+    --tertiary: #F5F5F5;
+  }
+
+  html {
+    font-family: 'Space Grotesk Variable', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  main {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--tertiary);
+    border: 1px solid var(--secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border: 1px solid var(--tertiary);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: var(--secondary);
+    border: 1px solid var(--tertiary);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+    border: 1px solid var(--secondary);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section {
+    margin: 6rem 0;
+    position: relative;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary);
+  }
+</style>

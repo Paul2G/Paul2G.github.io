@@ -1,33 +1,18 @@
 ---
-import Modal from "../components/Modal.astro";
-import ExperienceSection from "../components/sections/ExperienceSection.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import ProjectsSection from "../components/sections/ProjectsSection.astro";
-import TechnologiesSection from "../components/sections/TechnologiesSection.astro";
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import About from '../components/About.astro';
+import Education from '../components/Education.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Paul Garcia | paul2g">
-  <div class="w-full flex flex-col items-center mb-24">
-    <HeroSection />
-    <ExperienceSection class="max-w-screen-lg pt-16" />
-    <ProjectsSection class="max-w-screen-lg pt-16" />
-    <TechnologiesSection class="max-w-screen-lg pt-16" />
-    <Modal>
-      <div
-        class="flex flex-col items-center justify-center h-full text-center p-4"
-      >
-        <h1 class="text-5xl text-center font-bold font-hero mb-4">
-          Work in progress
-        </h1>
-        <h2 class="text-2xl font-bold mb-4">Contact Me</h2>
-        <p class="mb-4">
-          Feel free to reach out via email at <a
-            class="text-blue-500 hover:text-blue-700"
-            href="mailto:pggaleana@gmail.com">pggaleana@gmail.com</a
-          >
-        </p>
-      </div></Modal
-    >
-  </div></Layout
->
+<Layout title="Portfolio">
+  <Hero />
+  <Experience />
+  <Projects />
+  <Education />
+  <!--<Contact />-->
+  <About />
+</Layout>

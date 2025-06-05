@@ -1,0 +1,99 @@
+---
+---
+
+<section id="hero" class="min-h-screen flex items-center relative overflow-hidden border-b-4 border-primary">
+  <div class="container mx-auto px-4 py-16 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <div class="space-y-6">
+          <p class="font-mono text-primary">Hello, my name is</p>
+          
+          <h1 class="text-4xl md:text-6xl font-bold font-mono leading-tight">
+            <span class="block">DEV.NAME</span>
+            <span class="block mt-2">I build <span class="text-primary">digital</span> experiences.</span>
+          </h1>
+          
+          <p class="text-lg max-w-md leading-relaxed">
+            I'm a software developer specialized in building exceptional digital experiences. 
+            Currently, I'm focused on creating accessible, human-centered products.
+          </p>
+          
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a 
+              href="/#projects" 
+              class="inline-block px-6 py-3 font-mono font-bold border-2 border-primary bg-primary text-tertiary dark:text-secondary hover:bg-transparent hover:text-primary transition-colors duration-300"
+            >
+              View My Work
+            </a>
+            <a 
+              href="/#contact" 
+              class="inline-block px-6 py-3 font-mono font-bold border-2 border-secondary dark:border-tertiary hover:border-primary hover:text-primary transition-colors duration-300"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="order-1 md:order-2 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80">
+          <div class="absolute inset-0 border-4 border-primary"></div>
+          <div class="absolute inset-4 bg-secondary dark:bg-tertiary"></div>
+          <div class="absolute inset-8 border-4 border-primary"></div>
+          <div class="absolute inset-12 bg-tertiary dark:bg-secondary"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-mono text-4xl font-bold text-primary">&lt;/&gt;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+    <div class="grid grid-cols-12 h-full">
+      {Array(12).fill(0).map((_, i) => (
+        <div class="col-span-1 h-full border-r border-secondary/10 dark:border-tertiary/10"></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Optional: Add animations here if needed with GSAP
+  import { gsap } from 'gsap';
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from("#hero h1", { 
+      duration: 1, 
+      y: 50, 
+      opacity: 0, 
+      ease: "power3.out", 
+      delay: 0.2 
+    });
+    
+    gsap.from("#hero p", { 
+      duration: 1, 
+      y: 30, 
+      opacity: 0, 
+      ease: "power3.out", 
+      delay: 0.4 
+    });
+    
+    gsap.from("#hero a", { 
+      duration: 0.8, 
+      y: 20, 
+      opacity: 0, 
+      ease: "power3.out", 
+      delay: 0.6,
+      stagger: 0.2
+    });
+    
+    gsap.from("#hero .relative", {
+      duration: 1,
+      scale: 0.8,
+      opacity: 0,
+      ease: "back.out(1.7)",
+      delay: 0.2
+    });
+  });
+</script>

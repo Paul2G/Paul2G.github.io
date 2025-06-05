@@ -1,0 +1,107 @@
+---
+const skills = [
+  { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue", "Svelte"] },
+  { category: "Backend", items: ["Node.js", "Express", "Python", "Django", "Ruby on Rails"] },
+  { category: "Database", items: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"] },
+  { category: "DevOps", items: ["Git", "Docker", "AWS", "CI/CD", "Netlify"] },
+  { category: "Design", items: ["Figma", "Adobe XD", "UI/UX", "Responsive Design"] }
+];
+---
+
+<section id="about" class="section py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title font-mono">
+      <span class="text-primary">_</span>About Me
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="space-y-6">
+          <p class="text-lg leading-relaxed">
+            I'm a passionate software developer with expertise in building modern web applications. With a background in computer science and years of industry experience, I specialize in creating efficient, scalable, and user-friendly solutions.
+          </p>
+          
+          <p class="text-lg leading-relaxed">
+            My journey in software development began during my university years, where I discovered my passion for coding. Since then, I've worked on various projects, from small business websites to complex enterprise applications.
+          </p>
+          
+          <p class="text-lg leading-relaxed">
+            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through writing and speaking at tech events.
+          </p>
+          
+          <div class="pt-4">
+            <a 
+              href="/resume.pdf" 
+              class="inline-block px-6 py-3 font-mono font-bold border-2 border-primary bg-primary text-tertiary dark:text-secondary hover:bg-transparent hover:text-primary transition-colors duration-300"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold font-mono mb-6 relative inline-block">
+          <span class="text-primary">_</span>Skills & Technologies
+          <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
+        </h3>
+        
+        <div class="space-y-6">
+          {skills.map(skillSet => (
+            <div>
+              <h4 class="font-mono font-bold mb-2">{skillSet.category}</h4>
+              <div class="flex flex-wrap gap-2">
+                {skillSet.items.map(skill => (
+                  <span class="py-1 px-3 border-2 border-secondary dark:border-tertiary font-mono text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from("#about p", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 80%"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2
+    });
+    
+    gsap.from("#about .font-mono", {
+      scrollTrigger: {
+        trigger: "#about .font-mono",
+        start: "top 85%"
+      },
+      x: -30,
+      opacity: 0,
+      duration: 0.6
+    });
+    
+    gsap.from("#about span", {
+      scrollTrigger: {
+        trigger: "#about span",
+        start: "top 85%"
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.03
+    });
+  });
+</script>
