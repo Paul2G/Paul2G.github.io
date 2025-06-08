@@ -72,36 +72,35 @@ const skills = [
   gsap.registerPlugin(ScrollTrigger);
   
   window.addEventListener('DOMContentLoaded', () => {
-    gsap.from("#about p", {
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top 80%"
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2
+      gsap.from("#about p", {
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%"
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2
+      });
+
+      gsap.from("#about .font-mono", {
+        scrollTrigger: {
+          trigger: "#about .font-mono",
+          start: "top 80%"
+        },
+        x: -30,
+        duration: 0.6
+      });
+
+      gsap.from("#about span", {
+        scrollTrigger: {
+          trigger: "#about span",
+          start: "top 80%",
+        },
+        opacity: 0,
+        scale: 0.7,
+        duration: 0.2,
+        stagger: 0.03
+      });
     });
-    
-    gsap.from("#about .font-mono", {
-      scrollTrigger: {
-        trigger: "#about .font-mono",
-        start: "top 85%"
-      },
-      x: -30,
-      opacity: 0,
-      duration: 0.6
-    });
-    
-    gsap.from("#about span", {
-      scrollTrigger: {
-        trigger: "#about span",
-        start: "top 85%"
-      },
-      scale: 0.8,
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.03
-    });
-  });
 </script>
