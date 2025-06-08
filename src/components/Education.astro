@@ -1,28 +1,6 @@
 ---
-const education = [
-  {
-    degree: "Master of Science in Computer Science",
-    school: "Stanford University",
-    period: "2018 - 2020",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Thesis focused on developing novel deep learning architectures for computer vision applications.",
-    achievements: [
-      "Published 2 research papers in top-tier conferences",
-      "Teaching Assistant for Advanced Algorithms course",
-      "4.0 GPA"
-    ]
-  },
-  {
-    degree: "Bachelor of Science in Software Engineering",
-    school: "Massachusetts Institute of Technology",
-    period: "2014 - 2018",
-    description: "Core focus on software development, algorithms, and systems design. Minor in Mathematics.",
-    achievements: [
-      "Dean's List all semesters",
-      "Led university hackathon team to first place",
-      "Undergraduate research assistant in distributed systems lab"
-    ]
-  }
-];
+import { education } from "../data/education";
+import dayjs from "dayjs";
 ---
 
 <section id="education" class="section py-16">
@@ -36,7 +14,13 @@ const education = [
         <div class="border-4 border-secondary dark:border-tertiary p-6 hover:border-primary transition-colors duration-300">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <h3 class="text-xl font-bold font-mono">{edu.degree}</h3>
-            <span class="font-mono text-primary">{edu.period}</span>
+            <span class="font-mono text-primary">
+              {dayjs(edu.startDate).format("YYYY")} -
+              {
+                dayjs().isSame(edu.endDate, "day")
+                  ? "Now"
+                  : dayjs(edu.endDate).format("YYYY")
+              }</span>
           </div>
           
           <div class="mb-4">

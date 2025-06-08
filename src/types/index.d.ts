@@ -28,6 +28,15 @@ export interface Project {
   liveDemo?: string;
 }
 
+export interface Education {
+  degree: string;
+  school: string;
+  startDate: Date;
+  endDate: Date;
+  description: string;
+  achievements: Array<string>;
+}
+
 export interface Social {
   name: string;
   url: string | URL;
