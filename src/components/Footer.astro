@@ -1,10 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
-const socialLinks = [
-  { name: 'GitHub', url: 'https://github.com/' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/' },
-  { name: 'Twitter', url: 'https://twitter.com/' },
-];
+import { socialAccounts } from "../data/misc";
 ---
 
 <footer class="mt-16 border-t-4 border-primary bg-tertiary dark:bg-secondary">
@@ -12,7 +8,7 @@ const socialLinks = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
       <div class="md:col-span-1">
         <div class="font-mono text-xl font-bold mb-4">
-          <span class="text-primary">[</span> DEV.<span class="text-primary">NAME</span> <span class="text-primary">]</span>
+          <span class="text-primary">[</span> Paul2G.<span class="text-primary">DEV</span> <span class="text-primary">]</span>
         </div>
         <p class="mb-4 max-w-md">Software developer specialized in creating unique digital experiences with a focus on performance and design.</p>
       </div>
@@ -24,8 +20,7 @@ const socialLinks = [
         </h3>
         <ul class="space-y-2">
           <li><a href="/#projects" class="hover:text-primary transition-colors duration-300">Projects</a></li>
-          <li><a href="/#about" class="hover:text-primary transition-colors duration-300">About</a></li>
-          <li><a href="/#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+          <li><a href="/#experience" class="hover:text-primary transition-colors duration-300">Experience</a></li>
           <li><a href="/resume.pdf" class="hover:text-primary transition-colors duration-300">Resume</a></li>
         </ul>
       </div>
@@ -36,7 +31,7 @@ const socialLinks = [
           <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
         </h3>
         <ul class="space-y-2">
-          {socialLinks.map(link => (
+          {socialAccounts.map(link => (
             <li>
               <a 
                 href={link.url} 
@@ -55,7 +50,7 @@ const socialLinks = [
     <div class="py-2 border-t border-secondary dark:border-tertiary">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="font-mono text-sm">
-          &copy; {currentYear} <span class="text-primary">DEV.NAME</span> | All rights reserved
+          &copy; {currentYear} <span class="text-primary">Paul2G.DEV</span> | pggaleana@gmail.com
         </p>
         <p class="font-mono text-sm">
           <span class="text-primary">Designed & Built</span> with precision
