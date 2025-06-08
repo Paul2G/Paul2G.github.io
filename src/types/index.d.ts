@@ -16,7 +16,7 @@ export interface ExperienceEvent {
 
 export interface Technology {
   name: string;
-  icon: AstroComponentInstance;
+  icon?: AstroComponentInstance;
 }
 
 export interface Project {

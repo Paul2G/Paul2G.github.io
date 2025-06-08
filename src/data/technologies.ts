@@ -1,7 +1,7 @@
-import type { Technology, TechName } from "@/types";
+import type { Technology } from "@/types";
 import * as icons from "@/components/icons";
 
-export const technology: Record<TechName, Technology> = {
+export const technology: Record<string, Technology> = {
   Astro: {
     name: "Astro",
     icon: icons.AstroIcon,
@@ -15,8 +15,19 @@ export const technology: Record<TechName, Technology> = {
     icon: icons.CssIcon,
   },
   CSharp: {
-    name: "CSharp",
+    name: "C#",
     icon: icons.CSharpIcon,
+  },
+  Docker: {
+    name: "Docker",
+    icon: icons.DockerIcon,
+  },
+  DotNet: {
+    name: ".NET",
+    icon: icons.DotNetIcon,
+  },
+  EntityFramework: {
+    name: "Entity Framework",
   },
   Espressif: {
     name: "Espressif",
@@ -45,6 +56,10 @@ export const technology: Record<TechName, Technology> = {
   Remix: {
     name: "Remix",
     icon: icons.RemixIcon,
+  },
+  SQLServer: {
+    name: "SQL Server",
+    icon: icons.SQLServerIcon,
   },
   TailwindCSS: {
     name: "TailwindCSS",
