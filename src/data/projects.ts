@@ -4,6 +4,19 @@ import { technology } from "./technologies";
 
 export const projects: Array<Project> = [
   {
+    title: "",
+    description:
+      "Designed and developed a fully custom Shopify theme tailored for a shapewear brand, focusing on modern UX, mobile-first design, and high-conversion product pages. Implemented brand-specific styling, reusable components, and optimized checkout flows to enhance user engagement and drive sales.",
+    technologies: [
+      technology.Liquid,
+      technology.JavaScript,
+      technology.HTML,
+      technology.CSS,
+    ],
+    image: "/assets/sbc-shopify-theme.png",
+    liveDemo: "https://solbeautyandcare.com/",
+  },
+  {
     title: "React Admin Template",
     description:
       "A production-ready React template with a scalable architecture, clear project structure, and modular, reusable components—designed to help teams launch apps quickly while following best practices.",
