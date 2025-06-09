@@ -1,4 +1,6 @@
 ---
+import { socialAccounts } from "@/data/misc";
+
 ---
 
 <section id="hero" class="min-h-screen flex items-center relative overflow-hidden border-b-4 border-primary">
@@ -9,27 +11,33 @@
           <p class="font-mono text-primary">Hello, my name is</p>
           
           <h1 class="text-4xl md:text-6xl font-bold font-mono leading-tight">
-            <span class="block">DEV.NAME</span>
-            <span class="block mt-2">I build <span class="text-primary">digital</span> experiences.</span>
+            <span class="block">Paul García</span>
+            <span class="block mt-2">A <span class="text-primary">Software</span> Developer.</span>
           </h1>
           
           <p class="text-lg max-w-md leading-relaxed">
-            I'm a software developer specialized in building exceptional digital experiences. 
-            Currently, I'm focused on creating accessible, human-centered products.
+            I'm a passionate with expertise in building modern web applications. With a background in computer science and years of industry experience, I specialize in creating efficient, scalable, and user-friendly solutions.
           </p>
           
           <div class="pt-4 flex flex-wrap gap-4">
-            <a 
-              href="/#projects" 
-              class="inline-block px-6 py-3 font-mono font-bold border-2 border-primary bg-primary text-tertiary dark:text-secondary hover:bg-transparent hover:text-primary transition-colors duration-300"
+            {socialAccounts.map(link => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex gap-2 items-center px-6 py-3 font-mono font-bold border-2 border-primary bg-primary text-tertiary dark:text-secondary hover:bg-transparent hover:!text-primary transition-colors duration-300"
+              >
+                <i class:list={[link.icon, "text-xl"]} />
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              class="flex w-fit gap-2 items-center px-6 py-3 font-mono font-bold border-2 border-secondary dark:border-tertiary hover:!border-primary hover:text-primary transition-colors duration-300"
             >
-              View My Work
-            </a>
-            <a 
-              href="/#contact" 
-              class="inline-block px-6 py-3 font-mono font-bold border-2 border-secondary dark:border-tertiary hover:border-primary hover:text-primary transition-colors duration-300"
-            >
-              Contact Me
+              <i class="ph-fill ph-read-cv-logo text-xl"/>
+              Download Resume
             </a>
           </div>
         </div>

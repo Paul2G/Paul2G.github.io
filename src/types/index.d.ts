@@ -40,6 +40,6 @@ export interface Education {
 export interface Social {
   name: string;
   url: string | URL;
-  // Phosphor icon xd
+  label: string;
   icon: string;
 }
