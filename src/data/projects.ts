@@ -8,7 +8,6 @@ export const projects: Array<Project> = [
     description:
       "A production-ready React template with a scalable architecture, clear project structure, and modular, reusable components—designed to help teams launch apps quickly while following best practices.",
     technologies: [
-      technology.Remix,
       technology.React,
       technology.TypeScript,
       technology.Vite,

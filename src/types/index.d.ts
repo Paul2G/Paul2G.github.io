@@ -17,6 +17,13 @@ export interface ExperienceEvent {
 export interface Technology {
   name: string;
   icon?: AstroComponentInstance;
+  category:
+    | "Frontend"
+    | "Backend"
+    | "Database"
+    | "DevOps"
+    | "Languages"
+    | "Other";
 }
 
 export interface Project {
