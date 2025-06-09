@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-astro"
+  ],
+  "importOrder": [
+    "^astro",
+    "^@\\w",
+    "(types)",
+    "",
+    "@\\/(components)",
+    "",
+    "^[./]"
+  ],
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderTypeScriptVersion": "5.0.0",
+  "tailwindAttributes": ["class:list"]
+}
