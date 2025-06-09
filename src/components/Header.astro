@@ -2,83 +2,136 @@
 import { navigationItems } from "../data/navigation";
 ---
 
-<header class="fixed top-0 w-full z-50 py-2 bg-tertiary dark:bg-secondary border-b-4 border-primary">
+<header
+  class="fixed top-0 w-full z-50 py-2 bg-tertiary dark:bg-secondary border-b-4 border-primary"
+>
   <div class="container mx-auto px-4 flex justify-between items-center">
-    <a href="/" class="font-mono text-xl font-bold hover:text-primary transition-colors duration-300">
-      <span class="text-primary">[</span> Paul2G.<span class="text-primary">DEV</span> <span class="text-primary">]</span>
+    <a
+      href="/"
+      class="font-mono text-xl font-bold hover:text-primary transition-colors duration-300"
+    >
+      <span class="text-primary">[</span> Paul2G.<span class="text-primary"
+        >DEV</span
+      >
+      <span class="text-primary">]</span>
     </a>
-    
+
     <nav class="hidden md:block">
       <ul class="flex gap-8">
-        {navigationItems.map(item => (
-          <li>
-            <a 
-              href={item.to}
-              class="font-mono relative px-1 pb-1 hover:text-primary transition-colors duration-300"
-            >
-              {item.label}
-              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
-            </a>
-          </li>
-        ))}
+        {
+          navigationItems.map((item) => (
+            <li>
+              <a
+                href={item.to}
+                class="font-mono relative px-1 pb-1 hover:text-primary transition-colors duration-300"
+              >
+                {item.label}
+                <span class="absolute left-0 bottom-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
-    
+
     <div class="flex items-center gap-4">
       <button id="theme-toggle" class="p-2 transition-colors duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden dark:block">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 hidden dark:block"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+          ></path>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 block dark:hidden">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 block dark:hidden"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+          ></path>
         </svg>
       </button>
-      
-      <button id="menu-toggle" class="md:hidden p-2 transition-colors duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+
+      <button
+        id="menu-toggle"
+        class="md:hidden p-2 transition-colors duration-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
         </svg>
       </button>
     </div>
   </div>
-  
+
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-tertiary dark:bg-secondary z-40 pt-20 px-4">
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden fixed inset-0 bg-tertiary dark:bg-secondary z-40 pt-20 px-4"
+  >
     <ul class="flex flex-col gap-8 items-center">
-      {navigationItems.map(item => (
-        <li>
-          <a 
-            href={item.to}
-            class="font-mono text-xl border-b-2 border-transparent hover:border-primary hover:text-primary transition-all duration-300 pb-1"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
+      {
+        navigationItems.map((item) => (
+          <li>
+            <a
+              href={item.to}
+              class="font-mono text-xl border-b-2 border-transparent hover:border-primary hover:text-primary transition-all duration-300 pb-1"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </header>
 
 <script>
   // Theme toggle functionality
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark').toString());
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle?.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem(
+      "darkMode",
+      document.documentElement.classList.contains("dark").toString(),
+    );
   });
-  
+
   // Mobile menu functionality
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  menuToggle?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
   });
-  
+
   // Close mobile menu when clicking a link
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
+  const mobileLinks = document.querySelectorAll("#mobile-menu a");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
     });
   });
 </script>
@@ -86,14 +139,16 @@ import { navigationItems } from "../data/navigation";
 <style>
   /* Extra styling for header elements */
   header {
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
   }
-  
+
   @media (max-width: 768px) {
     #mobile-menu {
       transition: opacity 0.3s ease;
     }
-    
+
     #mobile-menu:not(.hidden) {
       opacity: 1;
     }

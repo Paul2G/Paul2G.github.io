@@ -1,6 +1,7 @@
 ---
-const currentYear = new Date().getFullYear();
 import { socialAccounts } from "../data/misc";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mt-16 border-t-4 border-primary bg-tertiary dark:bg-secondary">
@@ -8,48 +9,69 @@ import { socialAccounts } from "../data/misc";
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
       <div class="md:col-span-1">
         <div class="font-mono text-xl font-bold mb-4">
-          <span class="text-primary">[</span> Paul2G.<span class="text-primary">DEV</span> <span class="text-primary">]</span>
+          <span class="text-primary">[</span> Paul2G.<span class="text-primary"
+            >DEV</span
+          >
+          <span class="text-primary">]</span>
         </div>
       </div>
-      
+
       <div class="md:col-span-1">
         <h3 class="font-mono text-lg font-bold mb-4 relative inline-block">
           <span class="text-primary">_</span>Links
           <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
         </h3>
         <ul class="space-y-2">
-          <li><a href="/#projects" class="hover:text-primary transition-colors duration-300">Projects</a></li>
-          <li><a href="/#experience" class="hover:text-primary transition-colors duration-300">Experience</a></li>
-          <li><a href="/resume.pdf" class="hover:text-primary transition-colors duration-300">Resume</a></li>
+          <li>
+            <a
+              href="/#projects"
+              class="hover:text-primary transition-colors duration-300"
+              >Projects</a>
+          </li>
+          <li>
+            <a
+              href="/#experience"
+              class="hover:text-primary transition-colors duration-300"
+              >Experience</a>
+          </li>
+          <li>
+            <a
+              href="/resume.pdf"
+              class="hover:text-primary transition-colors duration-300"
+              >Resume</a>
+          </li>
         </ul>
       </div>
-      
+
       <div class="md:col-span-1">
         <h3 class="font-mono text-lg font-bold mb-4 relative inline-block">
           <span class="text-primary">_</span>Connect
           <span class="absolute bottom-0 left-0 w-full h-1 bg-primary"></span>
         </h3>
         <ul class="space-y-2">
-          {socialAccounts.map(link => (
-            <li>
-              <a 
-                href={link.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="hover:text-primary transition-colors duration-300"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
+          {
+            socialAccounts.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-primary transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
-    
+
     <div class="py-4 border-t border-secondary dark:border-tertiary">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="font-mono text-sm">
-          &copy; {currentYear} <span class="text-primary">Paul2G.DEV</span> | pggaleana@gmail.com
+          &copy; {currentYear}
+          <span class="text-primary">Paul2G.DEV</span> | pggaleana@gmail.com
         </p>
         <p class="font-mono text-sm">
           <span class="text-primary">Designed & Built</span> with precision
