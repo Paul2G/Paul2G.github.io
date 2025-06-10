@@ -108,6 +108,10 @@ export const technology: Record<string, Technology> = {
     icon: icons.SQLServerIcon,
     category: "Database",
   },
+  Swing: {
+    name: "Swing",
+    category: "Other",
+  },
   TailwindCSS: {
     name: "TailwindCSS",
     icon: icons.TailwindCssIcon,

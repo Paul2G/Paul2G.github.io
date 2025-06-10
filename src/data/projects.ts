@@ -43,4 +43,12 @@ export const projects: Array<Project> = [
     image: "/assets/social-events-service.png",
     repository: "https://github.com/Paul2G/social-events-service",
   },
+  {
+    title: "Swing Inventory Manager",
+    description:
+      "Inventory management application developed using Java Swing. The application allows you to manage loans to personnel, capturing inventory items, employees, and departments. All changes can be saved locally through Java object serialization.",
+    technologies: [technology.Java, technology.Swing],
+    image: "/assets/swing-inventory-manager.png",
+    repository: "https://github.com/Paul2G/swing-inventory-manager",
+  },
 ];
