@@ -4,9 +4,9 @@ import { technology } from "./technologies";
 
 export const projects: Array<Project> = [
   {
-    title: "",
+    title: "Shopify Theme for Sol Beauty & Care",
     description:
-      "Designed and developed a fully custom Shopify theme tailored for a shapewear brand, focusing on modern UX, mobile-first design, and high-conversion product pages. Implemented brand-specific styling, reusable components, and optimized checkout flows to enhance user engagement and drive sales.",
+      "Designed and developed a fully custom Shopify theme tailored for a shapewear brand, focusing on modern UX, mobile-first design, and high-conversion product pages. Implemented brand-specific styling and reusable components.",
     technologies: [
       technology.Liquid,
       technology.JavaScript,
