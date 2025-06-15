@@ -6,15 +6,17 @@ export const projects: Array<Project> = [
   {
     title: "Shopify Theme for Sol Beauty & Care",
     description:
-      "Designed and developed a fully custom Shopify theme tailored for a shapewear brand, focusing on modern UX, mobile-first design, and high-conversion product pages. Implemented brand-specific styling and reusable components.",
+      "Designed and developed a fully custom Shopify store tailored for a shapewear brand, focusing on modern UX, mobile-first design, and high-conversion product pages. Implemented brand-specific styling and reusable components.",
     technologies: [
-      technology.Liquid,
-      technology.JavaScript,
+      technology.React,
+      technology.Remix,
+      technology.TypeScript,
+      technology.TailwindCSS,
       technology.HTML,
       technology.CSS,
     ],
-    image: "/assets/sbc-shopify-theme.png",
-    liveDemo: "https://solbeautyandcare.com/",
+    image: "/assets/sbc-hydrogen-storefront.png",
+    liveDemo: "https://pagina-web-us-547feddb32638cebecdf.o2.myshopify.dev/",
   },
   {
     title: "React Admin Template",
