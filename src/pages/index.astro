@@ -7,11 +7,30 @@ import Projects from "../components/Projects.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Paul2G | Portfolio">
+<Layout
+  title="Paul2G | Software Engineer specializing in web development."
+  description="Portfolio of Paul2G, a software engineer specializing in web development. Explore my projects, experience, and education."
+>
+  <h1 class="clipped">Paul2G.dev</h1>
   <Hero />
   <Experience />
   <Projects />
   <Education />
   <!--<Contact />-->
   <About />
+
+  <style>
+    .clipped {
+      border: 0;
+      position: absolute;
+      z-index: -1;
+      clip: rect(0 0 0 0);
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%);
+      display: block;
+      margin: 0 -1px -1px 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  </style>
 </Layout>
