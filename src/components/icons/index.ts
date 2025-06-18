@@ -1,4 +1,5 @@
 import AstroIcon from "./AstroIcon.astro";
+import AWSIcon from "./AWSIcon.astro";
 import CLangIcon from "./CIcon.astro";
 import CSharpIcon from "./CSharpIcon.astro";
 import CssIcon from "./CssIcon.astro";
@@ -6,6 +7,7 @@ import DockerIcon from "./DockerIcon.astro";
 import DotNetIcon from "./DotNetIcon.astro";
 import EspressifIcon from "./EspressifIcon.astro";
 import ExpressIcon from "./ExpressIcon.astro";
+import GCPIcon from "./GCPIcon.astro";
 import GithubActionsIcon from "./GithubActionsIcon.astro";
 import GithubIcon from "./GithubIcon.astro";
 import GitIcon from "./GitIcon.astro";
@@ -24,6 +26,7 @@ import ViteIcon from "./ViteIcon.astro";
 import VueIcon from "./VueIcon.astro";
 
 export {
+  AWSIcon,
   AstroIcon,
   CLangIcon,
   CSharpIcon,
@@ -32,6 +35,7 @@ export {
   DotNetIcon,
   EspressifIcon,
   ExpressIcon,
+  GCPIcon,
   GitIcon,
   GithubIcon,
   GithubActionsIcon,

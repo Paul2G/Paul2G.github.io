@@ -8,6 +8,11 @@ export const technology: Record<string, Technology> = {
     icon: icons.AstroIcon,
     category: "Frontend",
   },
+  AWS: {
+    name: "AWS",
+    icon: icons.AWSIcon,
+    category: "DevOps",
+  },
   C: {
     name: "C",
     icon: icons.CLangIcon,
@@ -47,6 +52,11 @@ export const technology: Record<string, Technology> = {
     name: "Express",
     icon: icons.ExpressIcon,
     category: "Backend",
+  },
+  GCP: {
+    name: "GCP",
+    icon: icons.GCPIcon,
+    category: "DevOps",
   },
   Git: {
     name: "Git",
