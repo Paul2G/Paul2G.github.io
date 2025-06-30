@@ -125,7 +125,7 @@ export const technology: Record<string, Technology> = {
   TailwindCSS: {
     name: "TailwindCSS",
     icon: icons.TailwindCssIcon,
-    category: "Languages",
+    category: "Frontend",
   },
   TypeScript: {
     name: "TypeScript",
