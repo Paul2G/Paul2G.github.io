@@ -31,20 +31,20 @@ export const projects: Array<Project> = [
     image: "/assets/react-admin-template.png",
     repository: "https://github.com/Paul2G/react-admin-template-app",
   },
-  {
-    title: "Social Events Service",
-    description:
-      "A .NET 8 microservice for event management, featuring RESTful APIs for front-end and mobile integration, with Docker containerization for easy deployment and scalability.",
-    technologies: [
-      technology.CSharp,
-      technology.DotNet,
-      technology.EntityFramework,
-      technology.SQLServer,
-      technology.Docker,
-    ],
-    image: "/assets/social-events-service.png",
-    repository: "https://github.com/Paul2G/social-events-service",
-  },
+  // {
+  //   title: "Social Events Service",
+  //   description:
+  //     "A .NET 8 microservice for event management, featuring RESTful APIs for front-end and mobile integration, with Docker containerization for easy deployment and scalability.",
+  //   technologies: [
+  //     technology.CSharp,
+  //     technology.DotNet,
+  //     technology.EntityFramework,
+  //     technology.SQLServer,
+  //     technology.Docker,
+  //   ],
+  //   image: "/assets/social-events-service.png",
+  //   repository: "https://github.com/Paul2G/social-events-service",
+  // },
   {
     title: "Swing Inventory Manager",
     description:
