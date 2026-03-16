@@ -31,6 +31,22 @@ export const projects: Array<Project> = [
     image: "/assets/react-admin-template.png",
     repository: "https://github.com/Paul2G/react-admin-template-app",
   },
+  {
+    title: "Resumaker",
+    description:
+      "Developed a React-based resume builder supporting multiple resumes, nested sections, and client-side persistence using\n" +
+      "localStorage, with a focus on usability and performance.",
+    technologies: [
+      technology.React,
+      technology.TypeScript,
+      technology.Vite,
+      technology.TailwindCSS,
+      technology.ShadCN,
+    ],
+    image: "/assets/resumaker.png",
+    repository: "https://github.com/Paul2G/resumaker",
+    liveDemo: "https://resumaker.paul2g.dev/",
+  },
   // {
   //   title: "Social Events Service",
   //   description:

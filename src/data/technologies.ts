@@ -1,13 +1,9 @@
 import type { Technology } from "@/types";
 
 import * as icons from "@/components/icons";
+import { ShadCNIcon } from "@/components/icons";
 
 export const technology: Record<string, Technology> = {
-  Astro: {
-    name: "Astro",
-    icon: icons.AstroIcon,
-    category: "Frontend",
-  },
   AWS: {
     name: "AWS",
     icon: icons.AWSIcon,
@@ -88,11 +84,6 @@ export const technology: Record<string, Technology> = {
     icon: icons.JavaScriptIcon,
     category: "Languages",
   },
-  Liquid: {
-    name: "Liquid",
-    icon: icons.ShopifyIcon,
-    category: "Frontend",
-  },
   Node: {
     name: "Node.js",
     icon: icons.NodeIcon,
@@ -132,6 +123,11 @@ export const technology: Record<string, Technology> = {
     icon: icons.TypeScriptIcon,
     category: "Languages",
   },
+  Astro: {
+    name: "Astro",
+    icon: icons.AstroIcon,
+    category: "Frontend",
+  },
   Vite: {
     name: "Vite",
     icon: icons.ViteIcon,
@@ -140,6 +136,16 @@ export const technology: Record<string, Technology> = {
   Vue: {
     name: "Vue",
     icon: icons.VueIcon,
+    category: "Frontend",
+  },
+  ShadCN: {
+    name: "ShadCN",
+    category: "Frontend",
+    icon: ShadCNIcon,
+  },
+  Liquid: {
+    name: "Liquid",
+    icon: icons.ShopifyIcon,
     category: "Frontend",
   },
 };

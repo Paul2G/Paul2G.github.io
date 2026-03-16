@@ -18,6 +18,7 @@ import MySQLIcon from "./MySQLIcon.astro";
 import NodeIcon from "./NodeIcon.astro";
 import ReactIcon from "./ReactIcon.astro";
 import RemixIcon from "./RemixIcon.astro";
+import ShadCNIcon from "./ShadCNIcon.astro";
 import ShopifyIcon from "./ShopifyIcon.astro";
 import SQLServerIcon from "./SQLServerIcon.astro";
 import TailwindCssIcon from "./TailwindCssIcon.astro";
@@ -46,6 +47,7 @@ export {
   MySQLIcon,
   ReactIcon,
   RemixIcon,
+  ShadCNIcon,
   ShopifyIcon,
   SQLServerIcon,
   TailwindCssIcon,
