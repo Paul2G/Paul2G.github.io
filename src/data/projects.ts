@@ -29,7 +29,8 @@ export const projects: Array<Project> = [
       technology.TailwindCSS,
     ],
     image: "/assets/react-admin-template.png",
-    repository: "https://github.com/Paul2G/react-admin-template-app",
+    repository: "https://github.com/Paul2G/react-admin-template",
+    liveDemo: "https://admin-template.paul2g.dev",
   },
   {
     title: "Resumaker",
