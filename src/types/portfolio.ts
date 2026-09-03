@@ -1,3 +1,12 @@
+export interface ProjectReadme {
+  /** Which source supplies the readme content. */
+  source: "local" | "url";
+  /** Filename of a locally saved markdown file (relative to the readmes dir, e.g. "resumaker.md"). */
+  localFile?: string;
+  /** Raw markdown URL to fetch and render at build time (e.g. a GitHub raw README). */
+  url?: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -11,6 +20,8 @@ export interface Project {
   repository?: string;
   links?: { label: string; url: string }[];
   images?: string[];
+  /** Optional README rendered on the project detail page. Either a local markdown file or a markdown URL. */
+  readme?: ProjectReadme;
   featured: boolean;
 }
 

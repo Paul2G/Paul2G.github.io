@@ -20,6 +20,11 @@ export const projects: Project[] = [
       { label: "Live Demo", url: "https://resumaker.paul2g.dev" },
       { label: "Source", url: "https://github.com/Paul2G/resumaker" },
     ],
+    images: ["/images/projects/resumaker.png"],
+    readme: {
+      source: "local",
+      localFile: "resumaker.md",
+    },
     featured: true,
   },
 ];
