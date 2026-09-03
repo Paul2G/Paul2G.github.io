@@ -8,9 +8,11 @@ interface Props {
 const { entries } = Astro.props;
 
 const dateFmt = (iso: string) =>
-  new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short" });
+  new Date(iso).toLocaleDateString("en", { year: "numeric", month: "short" });
 
 const dotColors = ["bg-punch", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac", "bg-acid"];
+
+const visible = entries.filter((e) => e.visible);
 ---
 
 <section id="experience" class="scroll-mt-20 border-b-4 border-ink px-4 py-16">
@@ -27,7 +29,7 @@ const dotColors = ["bg-punch", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac", "
 
     <ol class="relative mt-10 space-y-8 border-l-4 border-ink pl-6">
       {
-        entries.map((e, i) => (
+        visible.map((e, i) => (
           <li class="relative pb-2">
             <span
               class={[
@@ -40,25 +42,19 @@ const dotColors = ["bg-punch", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac", "
             <article class="card-brutal p-5 sm:p-6">
               <div class="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
                 <div>
-                  <h3 class="font-display text-xl font-black uppercase tracking-tight">{e.role}</h3>
-                  <p class="mt-0.5 text-sm font-bold uppercase tracking-widest text-flame">{e.company}</p>
+                  <h3 class="font-display text-xl font-black uppercase tracking-tight">{e.title}</h3>
+                  <p class="mt-0.5 text-sm font-bold uppercase tracking-widest text-flame">{e.organization}</p>
+                  <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-ink/50">{e.location}</p>
                 </div>
                 <span class="badge-brutal bg-ink text-paper">
                   {dateFmt(e.startDate)} — {e.endDate ? dateFmt(e.endDate) : "present"}
                 </span>
               </div>
-              <p class="mt-4 text-sm font-medium leading-relaxed text-ink/85">{e.description}</p>
-              {
-                e.stack && e.stack.length > 0 && (
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    {e.stack.map((s) => (
-                      <span class="border border-ink bg-paper px-2 py-0.5 text-xs font-bold uppercase tracking-wider">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                )
-              }
+              <div class="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink/85">
+                {e.description.map((d) => (
+                  <div set:html={d}></div>
+                ))}
+              </div>
             </article>
           </li>
         ))

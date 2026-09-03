@@ -1,22 +1,13 @@
 ---
-import type { Skill, SkillCategory } from "../../types/portfolio";
-import Badge from "../ui/Badge.astro";
+import type { SkillItem } from "../../api/data/skills";
 
 interface Props {
-  skills: Skill[];
+  groups: { label: string; skills: SkillItem[] }[];
 }
 
-const { skills } = Astro.props;
+const { groups } = Astro.props;
 
-const categoryMeta: Record<SkillCategory, { label: string; color: string }> = {
-  language: { label: "Languages", color: "bg-punch" },
-  framework: { label: "Frameworks", color: "bg-mint" },
-  tool: { label: "Tools", color: "bg-flame" },
-  other: { label: "Other", color: "bg-cobalt" },
-};
-
-const order: SkillCategory[] = ["language", "framework", "tool", "other"];
-const categoryColor = (name: string) => categoryMeta[name as SkillCategory].color;
+const colors = ["bg-punch", "bg-mint", "bg-flame", "bg-cobalt"];
 
 const levelColor = (level: number) =>
   level >= 4 ? "bg-flame" : level >= 3 ? "bg-acid" : "bg-mint";
@@ -26,7 +17,7 @@ const levelColor = (level: number) =>
   <div class="mx-auto max-w-6xl">
     <div class="flex items-center gap-3">
       <span class="grid h-10 w-10 place-items-center border-2 border-ink bg-acid shadow-brutal-sm">
-        <span class="font-display text-lg font-black">06</span>
+        <span class="font-display text-lg font-black">05</span>
       </span>
       <div>
         <h2 class="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">Skills</h2>
@@ -36,36 +27,30 @@ const levelColor = (level: number) =>
 
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       {
-        order.map((cat) => (
-          <section class:list={["card-brutal p-6", cat === "tool" ? "tilt" : ""]}>
+        groups.map((g, i) => (
+          <section class:list={["card-brutal p-6", i % 2 === 1 ? "tilt" : ""]}>
             <div class="mb-5 flex items-center justify-between">
-              <h3 class="font-display text-xl font-black uppercase tracking-tight">
-                {categoryMeta[cat].label}
-              </h3>
-              <span class={["grid h-9 w-9 place-items-center border-2 border-ink shadow-brutal-sm", categoryColor(cat)].join(" ")} aria-hidden="true">
-                <span class="font-display text-sm font-black">{skills.filter((s) => s.category === cat).length}</span>
+              <h3 class="font-display text-xl font-black uppercase tracking-tight">{g.label}</h3>
+              <span class={["grid h-9 w-9 place-items-center border-2 border-ink shadow-brutal-sm", colors[i % colors.length]].join(" ")} aria-hidden="true">
+                <span class="font-display text-sm font-black">{g.skills.length}</span>
               </span>
             </div>
             <ul class="space-y-3">
-              {skills.filter((s) => s.category === cat).map((s) => (
+              {g.skills.map((s) => (
                 <li class="flex items-center justify-between gap-3">
                   <span class="min-w-0 truncate text-sm font-bold uppercase tracking-wide">{s.name}</span>
-                  {
-                    s.level ? (
-                      <div class="flex shrink-0 items-center gap-1 border-2 border-ink bg-paper p-1" role="img"
-                        aria-label={`${s.name} proficiency ${s.level} of 5`}>
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <span
-                           
-                            class={["h-2.5 w-2.5 border border-ink", n <= s.level! ? levelColor(s.level!) : "bg-paper"].join(" ")}
-                            aria-hidden="true"
-                          ></span>
-                        ))}
-                      </div>
-                    ) : (
-                      <Badge color="paper">core</Badge>
-                    )
-                  }
+                  <div
+                    class="flex shrink-0 items-center gap-1 border-2 border-ink bg-paper p-1"
+                    role="img"
+                    aria-label={`${s.name} proficiency ${s.level ?? 3} of 5`}
+                  >
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <span
+                        class={["h-2.5 w-2.5 border border-ink", n <= (s.level ?? 3) ? levelColor(s.level ?? 3) : "bg-paper"].join(" ")}
+                        aria-hidden="true"
+                      ></span>
+                    ))}
+                  </div>
                 </li>
               ))}
             </ul>

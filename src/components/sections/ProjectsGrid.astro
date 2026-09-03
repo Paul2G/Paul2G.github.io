@@ -57,7 +57,7 @@ const dateFmt = (iso: string) =>
                 </span>
               </div>
 
-              <Badge color={accentCycle[i % accentCycle.length]} class="mt-4">{p.role}</Badge>
+              <Badge color={accentCycle[i % accentCycle.length]} class="mt-4">{p.organization}</Badge>
               <h3 class="mt-3 font-display text-2xl font-black uppercase leading-tight tracking-tight group-hover:text-punch">
                 {p.title}
               </h3>
@@ -92,7 +92,7 @@ const dateFmt = (iso: string) =>
           <article class:list={["card-brutal flex flex-col", i % 3 === 1 ? "tilt" : i % 3 === 2 ? "tilt-alt" : ""]}>
             <a href={`${base}projects/${p.slug}`} class="group block flex flex-1 flex-col p-5">
               <div class="flex items-start justify-between gap-3">
-                <Badge color={accentCycle[(i + 2) % accentCycle.length]}>{p.role}</Badge>
+                <Badge color={accentCycle[(i + 2) % accentCycle.length]}>{p.organization}</Badge>
                 <span class="ml-auto text-xs font-bold uppercase tracking-widest text-ink/50">
                   {p.endDate ? dateFmt(p.endDate) : "ongoing"}
                 </span>

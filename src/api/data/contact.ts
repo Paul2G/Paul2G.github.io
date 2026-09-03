@@ -1,11 +1,12 @@
 import type { ContactInfo } from "../../types/portfolio";
 
 export const contact: ContactInfo = {
-  email: "pgrierson@example.com",
-  location: "Port Ferlach, Northern District",
+  fullName: "Paul Garcia Galeana",
+  email: "pggaleana@gmail.com",
+  location: "Tijuana, B.C., México",
+  linkedin: "Paul2g",
   socials: [
-    { label: "GitHub", url: "https://github.com/example/pgrierson" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/pgrierson" },
-    { label: "Mastodon", url: "https://mastodon.social/@pgrierson" },
+    { label: "GitHub", url: "https://github.com/Paul2G" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/paul2g" },
   ],
 };

@@ -4,7 +4,6 @@ import Hero from "../components/sections/Hero.astro";
 import ProjectsGrid from "../components/sections/ProjectsGrid.astro";
 import ExperienceTimeline from "../components/sections/ExperienceTimeline.astro";
 import EducationList from "../components/sections/EducationList.astro";
-import CoursesList from "../components/sections/CoursesList.astro";
 import CertificationsList from "../components/sections/CertificationsList.astro";
 import SkillsGrid from "../components/sections/SkillsGrid.astro";
 
@@ -12,27 +11,26 @@ import {
   getProjects,
   getExperience,
   getEducation,
-  getCourses,
   getCertifications,
   getSkills,
   getContactInfo,
+  getSummary,
 } from "../api/mockApi";
 
 const projects = await getProjects();
 const experience = await getExperience();
 const education = await getEducation();
-const courses = await getCourses();
 const certifications = await getCertifications();
 const skills = await getSkills();
 const contact = await getContactInfo();
+const summary = await getSummary();
 ---
 
 <BaseLayout>
-  <Hero contact={contact} />
+  <Hero contact={contact} summary={summary.summary} />
   <ProjectsGrid projects={projects} />
   <ExperienceTimeline entries={experience} />
   <EducationList entries={education} />
-  <CoursesList courses={courses} />
   <CertificationsList certifications={certifications} />
-  <SkillsGrid skills={skills} />
+  <SkillsGrid groups={skills} />
 </BaseLayout>

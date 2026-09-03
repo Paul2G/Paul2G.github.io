@@ -4,7 +4,6 @@ import type {
   EducationEntry,
   Course,
   Certification,
-  Skill,
   ContactInfo,
 } from "../types/portfolio";
 import { projects } from "./data/projects";
@@ -14,6 +13,7 @@ import { courses } from "./data/courses";
 import { certifications } from "./data/certifications";
 import { skills } from "./data/skills";
 import { contact } from "./data/contact";
+import { summary } from "./data/summary";
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -51,9 +51,14 @@ export async function getCertifications(): Promise<Certification[]> {
   return certifications;
 }
 
-export async function getSkills(): Promise<Skill[]> {
+export async function getSkills() {
   await delay(40);
   return skills;
+}
+
+export async function getSummary() {
+  await delay(20);
+  return summary;
 }
 
 export async function getContactInfo(): Promise<ContactInfo> {

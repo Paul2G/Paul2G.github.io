@@ -2,31 +2,39 @@ export interface Project {
   slug: string;
   title: string;
   summary: string;
-  description: string;
-  role: string;
+  description: string[];
+  organization: string;
   stack: string[];
   startDate: string;
   endDate: string | null;
+  link?: string;
+  repository?: string;
   links?: { label: string; url: string }[];
   images?: string[];
   featured: boolean;
 }
 
 export interface ExperienceEntry {
-  company: string;
-  role: string;
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
   startDate: string;
   endDate: string | null;
-  description: string;
-  stack?: string[];
+  isCurrentlyWorkingHere: boolean;
+  description: string[];
+  visible: boolean;
 }
 
 export interface EducationEntry {
-  institution: string;
-  degree: string;
-  field: string;
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  completionDate: string;
   startDate: string;
   endDate: string | null;
+  description: string[];
 }
 
 export interface Course {
@@ -37,23 +45,23 @@ export interface Course {
 }
 
 export interface Certification {
+  id: string;
   name: string;
   issuer: string;
   issueDate: string;
-  expiryDate?: string;
+  credentialId?: string;
   credentialUrl?: string;
-}
-
-export type SkillCategory = "language" | "framework" | "tool" | "other";
-
-export interface Skill {
-  name: string;
-  category: SkillCategory;
-  level?: 1 | 2 | 3 | 4 | 5;
+  description: string[];
 }
 
 export interface ContactInfo {
+  fullName: string;
   email: string;
   location: string;
+  linkedin: string;
   socials: { label: string; url: string }[];
+}
+
+export interface SummaryInfo {
+  summary: string;
 }

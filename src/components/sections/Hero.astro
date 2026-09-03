@@ -3,11 +3,12 @@ import type { ContactInfo } from "../../types/portfolio";
 
 interface Props {
   contact: ContactInfo;
+  summary: string;
 }
 
-const { contact } = Astro.props;
+const { contact, summary } = Astro.props;
 
-const role = "S.O.F.T.W.A.R.E. E.N.G.";
+const role = "SOFTWARE ENGINEER";
 const clock = "BUILD → SHIP → BREAK → REPEAT";
 ---
 
@@ -37,7 +38,7 @@ const clock = "BUILD → SHIP → BREAK → REPEAT";
       <h1 class="font-display font-black uppercase leading-[0.9] tracking-tight">
         <span class="block text-3xl sm:text-4xl md:text-5xl">Hi, I'm</span>
         <span class="relative mt-2 inline-block bg-punch px-3 text-paper shadow-brutal sm:text-5xl md:text-7xl">
-          P. Grierson
+          {contact.fullName}
         </span>
       </h1>
 
@@ -46,10 +47,7 @@ const clock = "BUILD → SHIP → BREAK → REPEAT";
       </p>
 
       <p class="mt-6 max-w-xl text-base font-medium leading-relaxed sm:text-lg">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. I build
-        hard-edged tools and loud interfaces — thing is, I'm not just about the
-        polish. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien
-        massa, convallis a pellentesque nec.
+        {summary}
       </p>
 
       <div class="mt-8 flex flex-wrap items-center gap-4">
@@ -84,7 +82,7 @@ const clock = "BUILD → SHIP → BREAK → REPEAT";
           <div class="grid h-full w-full place-items-center border-2 border-dashed border-ink/60">
             <div class="text-center">
               <i class="ph-fill ph-star-four mx-auto text-5xl text-punch" aria-hidden="true"></i>
-              <p class="mt-3 font-display text-3xl font-black uppercase leading-none">7+</p>
+              <p class="mt-3 font-display text-3xl font-black uppercase leading-none">4+</p>
               <p class="font-display text-xs font-bold uppercase tracking-widest">yr building</p>
             </div>
           </div>
@@ -101,10 +99,10 @@ const clock = "BUILD → SHIP → BREAK → REPEAT";
 
   <div class="relative mx-auto max-w-6xl px-4 pb-10">
     <div class="flex flex-wrap gap-3">
-      {["TypeScript", "React", "Rust", "Astro", "Node"].map((t) => (
+      {["React", "TypeScript", "ASP.NET", "Node.js", "AWS"].map((t) => (
         <span class="badge-brutal bg-mint">{t}</span>
       ))}
-      <span class="badge-brutal bg-flame text-paper">+20 more</span>
+      <span class="badge-brutal bg-flame text-paper">+more</span>
     </div>
   </div>
 </section>

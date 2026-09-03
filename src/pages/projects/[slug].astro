@@ -25,7 +25,6 @@ if (!project) {
 
 const dateFmt = (iso: string) =>
   new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" });
-
 const base = import.meta.env.BASE_URL;
 
 const accent = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac"][
@@ -33,11 +32,11 @@ const accent = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac"][
 ];
 ---
 
-<BaseLayout title={`${project.title} — P. Grierson`} description={project.summary}>
+<BaseLayout title={`${project.title} — Paul Garcia Galeana`} description={project.summary}>
   <article class="px-4 py-12">
     <div class="mx-auto max-w-4xl">
       <a href={base + "#work"} class="btn-brutal mb-8 !px-4 !py-2 text-xs">
-        <span aria-hidden="true"><i class="ph ph-arrow-right"></i></span> Back to all work
+        <span aria-hidden="true"><i class="ph ph-arrow-left"></i></span> Back to all work
       </a>
 
       <header class="card-brutal overflow-hidden">
@@ -57,7 +56,7 @@ const accent = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac"][
         </div>
 
         <div class="p-6 sm:p-8">
-          <Badge color="flame" textColor="paper" class="mb-3">{project.role}</Badge>
+          <Badge color="flame" textColor="paper" class="mb-3">{project.organization}</Badge>
           <h1 class="font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl">
             {project.title}
           </h1>
@@ -97,11 +96,11 @@ const accent = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac"][
 
       <section class="mt-10 card-brutal p-6 sm:p-8">
         <h2 class="mb-4 font-display text-2xl font-black uppercase tracking-tight">The Brief</h2>
-        {
-          project.description.split("\n\n").map((para) => (
-            <p class="mb-4 text-base font-medium leading-relaxed text-ink/85">{para}</p>
-          ))
-        }
+        <div class="space-y-4 text-base font-medium leading-relaxed text-ink/85">
+          {project.description.map((d) => (
+            <div set:html={d}></div>
+          ))}
+        </div>
       </section>
 
       {
