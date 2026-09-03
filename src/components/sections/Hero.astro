@@ -1,0 +1,110 @@
+---
+import type { ContactInfo } from "../../types/portfolio";
+
+interface Props {
+  contact: ContactInfo;
+}
+
+const { contact } = Astro.props;
+
+const role = "S.O.F.T.W.A.R.E. E.N.G.";
+const clock = "BUILD → SHIP → BREAK → REPEAT";
+---
+
+<section class="relative overflow-hidden border-b-4 border-ink">
+  <div class="grid-paper absolute inset-0 opacity-20" aria-hidden="true"></div>
+
+  <!-- Memphis decorations -->
+  <div class="pointer-events-none absolute right-4 top-8 hidden lg:block" aria-hidden="true">
+    <svg width="90" height="90" viewBox="0 0 100 100">
+      <rect x="5" y="5" width="90" height="90" fill="#ffdf1b" stroke="#16121a" stroke-width="6"/>
+      <circle cx="50" cy="50" r="16" fill="#ff4fa3" stroke="#16121a" stroke-width="5"/>
+    </svg>
+  </div>
+  <div class="pointer-events-none absolute bottom-24 left-4 hidden md:block" aria-hidden="true">
+    <svg width="70" height="40" viewBox="0 0 70 40">
+      <path d="M0 20 L15 20 L15 0 L30 0 L30 40 L45 40 L45 10 L60 10 L60 30 L70 30" fill="none" stroke="#3b6cff" stroke-width="6" stroke-linecap="square"/>
+    </svg>
+  </div>
+
+  <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:py-24 lg:grid-cols-[1.3fr_1fr]">
+    <div>
+      <p class="badge-brutal mb-6 bg-cobalt text-paper">
+        <span aria-hidden="true"><i class="ph-fill ph-lightning"></i></span>
+        {clock}
+      </p>
+
+      <h1 class="font-display font-black uppercase leading-[0.9] tracking-tight">
+        <span class="block text-3xl sm:text-4xl md:text-5xl">Hi, I'm</span>
+        <span class="relative mt-2 inline-block bg-punch px-3 text-paper shadow-brutal sm:text-5xl md:text-7xl">
+          P. Grierson
+        </span>
+      </h1>
+
+      <p class="mt-6 font-display text-xl font-black uppercase tracking-[0.2em] text-flame sm:text-2xl">
+        {role}
+      </p>
+
+      <p class="mt-6 max-w-xl text-base font-medium leading-relaxed sm:text-lg">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. I build
+        hard-edged tools and loud interfaces — thing is, I'm not just about the
+        polish. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien
+        massa, convallis a pellentesque nec.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="#work" class="btn-brutal">
+          See the work <i class="ph ph-arrow-right"></i>
+        </a>
+        <a href={`mailto:${contact.email}`} class="btn-brutal btn-brutal--punch">
+          Get in touch
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-col gap-2 border-t-4 border-dashed border-ink/40 pt-4 text-sm font-bold uppercase tracking-widest sm:flex-row sm:gap-8">
+        <span class="flex items-center gap-2">
+          <span aria-hidden="true" class="text-mint"><i class="ph ph-arrow-right"></i></span>
+          {contact.location}
+        </span>
+        <a href={`mailto:${contact.email}`} class="flex items-center gap-2 underline decoration-2 decoration-punch hover:text-punch">
+          <span aria-hidden="true" class="text-mint"><i class="ph ph-arrow-right"></i></span>
+          {contact.email}
+        </a>
+      </div>
+    </div>
+
+    <!-- Starburst sticker -->
+    <div class="relative mx-auto flex items-center justify-center">
+      <div class="tilt relative grid place-items-center">
+        <div
+          class="absolute inset-0 translate-x-3 translate-y-3 border-4 border-ink bg-cobalt"
+          aria-hidden="true"
+        ></div>
+        <div class="relative grid aspect-square w-56 place-items-center border-4 border-ink bg-acid p-4 sm:w-72">
+          <div class="grid h-full w-full place-items-center border-2 border-dashed border-ink/60">
+            <div class="text-center">
+              <i class="ph-fill ph-star-four mx-auto text-5xl text-punch" aria-hidden="true"></i>
+              <p class="mt-3 font-display text-3xl font-black uppercase leading-none">7+</p>
+              <p class="font-display text-xs font-bold uppercase tracking-widest">yr building</p>
+            </div>
+          </div>
+        </div>
+        <span class="absolute -right-4 -top-4 grid h-14 w-14 place-items-center rounded-none border-2 border-ink bg-punch text-paper shadow-brutal-sm" aria-hidden="true">
+          <i class="ph-fill ph-star text-2xl"></i>
+        </span>
+        <span class="absolute -left-5 top-8 hidden font-display text-sm font-black uppercase tracking-widest bg-cobalt px-3 py-1 border-2 border-ink text-paper sm:block" aria-hidden="true">
+          100% brutal
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 pb-10">
+    <div class="flex flex-wrap gap-3">
+      {["TypeScript", "React", "Rust", "Astro", "Node"].map((t) => (
+        <span class="badge-brutal bg-mint">{t}</span>
+      ))}
+      <span class="badge-brutal bg-flame text-paper">+20 more</span>
+    </div>
+  </div>
+</section>

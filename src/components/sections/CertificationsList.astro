@@ -1,0 +1,64 @@
+---
+import type { Certification } from "../../types/portfolio";
+
+interface Props {
+  certifications: Certification[];
+}
+
+const { certifications } = Astro.props;
+
+const dateFmt = (iso: string) =>
+  new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short" });
+
+const bands = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac", "bg-punch"];
+---
+
+<section id="certifications" class="border-b-4 border-ink px-4 py-16">
+  <div class="mx-auto max-w-6xl">
+    <div class="flex items-center gap-3">
+      <span class="grid h-10 w-10 place-items-center border-2 border-ink bg-flame shadow-brutal-sm">
+        <span class="font-display text-lg font-black text-paper">05</span>
+      </span>
+      <div>
+        <h2 class="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">Certifications</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-ink/60">Powered by autodidact mode</p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        certifications.map((c, i) => (
+          <article class:list={["card-brutal flex flex-col", i % 3 === 1 ? "tilt-alt" : ""]}>
+            <div class={["h-3 w-full border-b-4 border-ink", bands[i % bands.length]].join(" ")} aria-hidden="true"></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="mb-4 grid h-12 w-12 place-items-center border-2 border-ink bg-paper shadow-brutal-sm">
+                <i class="ph-fill ph-star text-xl text-flame" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-display text-xl font-black uppercase leading-tight tracking-tight">{c.name}</h3>
+              <p class="mt-1 text-xs font-bold uppercase tracking-widest text-flame">Issued by {c.issuer}</p>
+
+              <div class="mt-auto pt-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-ink/60">
+                  Issued {dateFmt(c.issueDate)}
+                  {c.expiryDate ? ` · expires ${dateFmt(c.expiryDate)}` : ""}
+                </p>
+                {
+                  c.credentialUrl && (
+                    <a
+                      href={c.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-4 inline-flex items-center gap-1 border-2 border-ink bg-ink px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-paper shadow-brutal-sm transition-none hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-punch hover:shadow-none"
+                    >
+                      Verify <i class="ph ph-arrow-square-out"></i>
+                    </a>
+                  )
+                }
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

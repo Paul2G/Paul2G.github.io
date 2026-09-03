@@ -1,0 +1,8 @@
+# Allow lifecycle build scripts only for the reviewed deps below.
+# (pnpm v11 uses `allowBuilds`; the old `onlyBuiltDependencies` is removed.)
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# pnpm 11 runs an implicit install check before `pnpm run`; skip it in CI.
+verifyDepsBeforeRun: false

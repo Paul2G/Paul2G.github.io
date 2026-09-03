@@ -1,0 +1,120 @@
+---
+import type { Project } from "../../types/portfolio";
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+
+const accentCycle = ["acid", "mint", "flame", "cobalt", "lilac"] as const;
+
+const dateFmt = (iso: string) =>
+  new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short" });
+---
+
+<section id="work" class="scroll-mt-20 border-b-4 border-ink bg-lilac/40 px-4 py-16">
+  <div class="mx-auto max-w-6xl">
+    <div class="flex items-center gap-3">
+      <span class="grid h-10 w-10 place-items-center border-2 border-ink bg-flame shadow-brutal-sm">
+        <span class="font-display text-lg font-black text-paper">01</span>
+      </span>
+      <div>
+        <h2 class="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">Projects</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-ink/60">Picked show-off pieces, front and centre</p>
+      </div>
+    </div>
+
+    <!-- Featured project(s) -->
+    <div class="mt-10 grid gap-8 md:grid-cols-2">
+      {
+        featured.map((p, i) => (
+          <article
+            class:list={[
+              "card-brutal relative flex flex-col transition-none",
+              i % 2 === 0 ? "md:translate-y-3" : "",
+            ]}
+          >
+            <a href={`${base}projects/${p.slug}`} class="group block flex-1 p-5">
+              {/* pseudo-3D header image slab */}
+              <div class="relative h-44 overflow-hidden border-b-4 border-ink">
+                <div class="absolute inset-0 translate-x-2 translate-y-2 bg-cobalt" aria-hidden="true"></div>
+                <div class="absolute inset-0 grid place-items-center bg-punch text-paper transition-transform group-hover:translate-x-1 group-hover:translate-y-1">
+                  {i === 0
+                    ? <i class="ph-fill ph-lightning text-5xl" aria-hidden="true"></i>
+                    : i === 1
+                      ? <i class="ph-fill ph-star-four text-5xl" aria-hidden="true"></i>
+                      : <i class="ph ph-file-text text-5xl" aria-hidden="true"></i>}
+                </div>
+                <span class="absolute left-3 top-3 grid h-8 w-14 place-items-center gap-1 border-2 border-ink bg-acid text-xs font-bold uppercase">
+                  feat
+                </span>
+              </div>
+
+              <Badge color={accentCycle[i % accentCycle.length]} class="mt-4">{p.role}</Badge>
+              <h3 class="mt-3 font-display text-2xl font-black uppercase leading-tight tracking-tight group-hover:text-punch">
+                {p.title}
+              </h3>
+              <p class="mt-3 text-sm font-medium leading-relaxed text-ink/80">{p.summary}</p>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                {p.stack.slice(0, 5).map((s) => (
+                  <span class="border border-ink bg-paper px-2 py-0.5 text-xs font-bold uppercase tracking-wider">
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+              <div class="mt-4 flex items-center justify-between border-t-4 border-dashed border-ink/30 pt-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-ink/60">
+                  {dateFmt(p.startDate)} — {p.endDate ? dateFmt(p.endDate) : "now"}
+                </span>
+                <span class="btn-brutal mt-0 inline-flex !px-4 !py-2 text-xs">
+                   Open case <span aria-hidden="true"><i class="ph ph-arrow-right"></i></span>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Full remaining grid -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        rest.map((p, i) => (
+          <article class:list={["card-brutal flex flex-col", i % 3 === 1 ? "tilt" : i % 3 === 2 ? "tilt-alt" : ""]}>
+            <a href={`${base}projects/${p.slug}`} class="group block flex flex-1 flex-col p-5">
+              <div class="flex items-start justify-between gap-3">
+                <Badge color={accentCycle[(i + 2) % accentCycle.length]}>{p.role}</Badge>
+                <span class="ml-auto text-xs font-bold uppercase tracking-widest text-ink/50">
+                  {p.endDate ? dateFmt(p.endDate) : "ongoing"}
+                </span>
+              </div>
+              <h3 class="mt-3 font-display text-xl font-black uppercase leading-tight tracking-tight group-hover:text-punch">
+                {p.title}
+              </h3>
+              <p class="mt-2 flex-1 text-sm font-medium leading-relaxed text-ink/80">{p.summary}</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {p.stack.slice(0, 4).map((s) => (
+                  <span class="border border-ink bg-paper px-2 py-0.5 text-xs font-bold uppercase">
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <span class="mt-4 inline-flex items-center gap-1 border-2 border-ink bg-acid px-3 py-1.5 text-xs font-bold uppercase tracking-widest shadow-brutal-sm transition-none group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none">
+                 Details <i class="ph ph-arrow-right"></i>
+              </span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

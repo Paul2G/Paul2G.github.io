@@ -1,0 +1,68 @@
+---
+import type { ExperienceEntry } from "../../types/portfolio";
+
+interface Props {
+  entries: ExperienceEntry[];
+}
+
+const { entries } = Astro.props;
+
+const dateFmt = (iso: string) =>
+  new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short" });
+
+const dotColors = ["bg-punch", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac", "bg-acid"];
+---
+
+<section id="experience" class="scroll-mt-20 border-b-4 border-ink px-4 py-16">
+  <div class="mx-auto max-w-6xl">
+    <div class="flex items-center gap-3">
+      <span class="grid h-10 w-10 place-items-center border-2 border-ink bg-mint shadow-brutal-sm">
+        <span class="font-display text-lg font-black">02</span>
+      </span>
+      <div>
+        <h2 class="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">Experience</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-ink/60">Where the scars came from</p>
+      </div>
+    </div>
+
+    <ol class="relative mt-10 space-y-8 border-l-4 border-ink pl-6">
+      {
+        entries.map((e, i) => (
+          <li class="relative pb-2">
+            <span
+              class={[
+                "absolute -left-[2.5rem] top-0 grid h-7 w-7 place-items-center rounded-full border-4 border-ink",
+                dotColors[i % dotColors.length],
+              ].join(" ")}
+              aria-hidden="true"
+            ></span>
+
+            <article class="card-brutal p-5 sm:p-6">
+              <div class="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
+                <div>
+                  <h3 class="font-display text-xl font-black uppercase tracking-tight">{e.role}</h3>
+                  <p class="mt-0.5 text-sm font-bold uppercase tracking-widest text-flame">{e.company}</p>
+                </div>
+                <span class="badge-brutal bg-ink text-paper">
+                  {dateFmt(e.startDate)} — {e.endDate ? dateFmt(e.endDate) : "present"}
+                </span>
+              </div>
+              <p class="mt-4 text-sm font-medium leading-relaxed text-ink/85">{e.description}</p>
+              {
+                e.stack && e.stack.length > 0 && (
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {e.stack.map((s) => (
+                      <span class="border border-ink bg-paper px-2 py-0.5 text-xs font-bold uppercase tracking-wider">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )
+              }
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

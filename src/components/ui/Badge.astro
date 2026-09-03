@@ -1,0 +1,32 @@
+---
+interface Props {
+  /** Background fill. */
+  color?: "paper" | "ink" | "acid" | "punch" | "mint" | "flame" | "cobalt" | "lilac";
+  /** Text colour (defaults to ink unless overridden). */
+  textColor?: "ink" | "paper";
+  /** Optional extra classes. */
+  class?: string;
+}
+
+const { color = "acid", textColor = "ink", class: className = "" } = Astro.props;
+
+const fills: Record<string, string> = {
+  paper: "bg-paper",
+  ink: "bg-ink",
+  acid: "bg-acid",
+  punch: "bg-punch",
+  mint: "bg-mint",
+  flame: "bg-flame",
+  cobalt: "bg-cobalt",
+  lilac: "bg-lilac",
+};
+
+const text: Record<string, string> = {
+  ink: "text-ink",
+  paper: "text-paper",
+};
+---
+
+<span class:list={["badge-brutal", fills[color], text[textColor], className]}>
+  <slot />
+</span>

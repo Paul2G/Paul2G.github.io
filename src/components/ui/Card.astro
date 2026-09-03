@@ -1,0 +1,34 @@
+---
+interface Props {
+  /** Optional classes merged onto the block. */
+  class?: string;
+  /** Accent bar colour on top, one of the palette names. */
+  accent?: "paper" | "ink" | "acid" | "punch" | "mint" | "flame" | "cobalt" | "lilac";
+  /** Slight controlled rotation for deliberate inconsistency. */
+  tilt?: boolean;
+}
+
+const { class: className = "", accent = "paper", tilt = false } = Astro.props;
+
+const accents: Record<string, string> = {
+  paper: "bg-paper",
+  ink: "bg-ink",
+  acid: "bg-acid",
+  punch: "bg-punch",
+  mint: "bg-mint",
+  flame: "bg-flame",
+  cobalt: "bg-cobalt",
+  lilac: "bg-lilac",
+};
+---
+
+<div class:list={[
+  "card-brutal relative flex flex-col",
+  tilt ? "tilt" : "",
+  className,
+]}>
+  <div class:list={["h-3 w-full border-b-4 border-ink", accents[accent]]} aria-hidden="true"></div>
+  <div class="flex flex-1 flex-col p-5">
+    <slot />
+  </div>
+</div>

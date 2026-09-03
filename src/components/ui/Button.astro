@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  /** Visual variant. */
+  variant?: "default" | "punch" | "mint";
+  /** True to open in a new tab. */
+  external?: boolean;
+  /** Optional extra classes. */
+  class?: string;
+}
+
+const { href, variant = "default", external = false, class: className = "" } = Astro.props;
+
+const variants: Record<string, string> = {
+  default: "btn-brutal",
+  punch: "btn-brutal btn-brutal--punch",
+  mint: "btn-brutal btn-brutal--mint",
+};
+---
+
+<a
+  href={href}
+  class:list={[variants[variant], className]}
+  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+>
+  <slot />
+</a>

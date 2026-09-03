@@ -1,0 +1,150 @@
+---
+import "../styles/global.css";
+import "@phosphor-icons/web/regular";
+import "@phosphor-icons/web/fill";
+import { getContactInfo } from "../api/mockApi";
+import type { ContactInfo } from "../types/portfolio";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "P.Grierson — Software Engineer",
+  description = "Portfolio of a software engineer: projects, experience, education, courses, certifications, and skills.",
+} = Astro.props;
+
+const contact: ContactInfo = await getContactInfo();
+
+const base = import.meta.env.BASE_URL;
+
+const navLinks = [
+  { label: "Work", href: "#work", tab: true },
+  { label: "Experience", href: "#experience", tab: true },
+  { label: "Skills", href: "#skills", tab: true },
+  { label: "Courses", href: "#courses", tab: true },
+  { label: "Contact", href: "#contact", tab: true },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link
+      rel="icon"
+      href={import.meta.env.BASE_URL + "favicon.svg"}
+      type="image/svg+xml"
+    />
+    <title>{title}</title>
+    <style>
+      .nav-scroll {
+        scroll-margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Sticky header -->
+    <header class="sticky top-0 z-40 border-b-4 border-ink bg-paper">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <a href={base} class="flex items-center gap-2 font-display text-xl font-black uppercase tracking-tight">
+          <span aria-hidden="true" class="grid h-8 w-8 place-items-center border-2 border-ink bg-mint shadow-brutal-sm">
+            <i class="ph-fill ph-star text-xl"></i>
+          </span>
+          <span class="bg-ink px-2 py-1 text-paper">G.R.I.</span>
+        </a>
+        <nav class="hidden gap-1 sm:flex" aria-label="Primary">
+          {
+            navLinks.map((l) => (
+              <a
+                href={l.href}
+                class="border-2 border-transparent px-3 py-2 text-xs font-bold uppercase tracking-widest hover:border-ink hover:bg-acid"
+              >
+                {l.label}
+              </a>
+            ))
+          }
+        </nav>
+        <button
+          id="nav-toggle"
+          class="flex h-10 w-10 items-center justify-center border-2 border-ink bg-punch text-paper shadow-brutal-sm active:shadow-none sm:hidden"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+      <nav
+        id="mobile-menu"
+        class="hidden flex-col border-t-4 border-ink bg-paper px-4 py-2 sm:hidden"
+        aria-label="Mobile"
+      >
+        {
+            navLinks.map((l) => (
+              <a
+                href={l.href}
+                class="block border-b-2 border-ink/20 py-3 text-sm font-bold uppercase tracking-widest"
+              >
+                {l.label}
+              </a>
+            ))
+        }
+      </nav>
+    </header>
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-auto border-t-4 border-ink bg-ink text-paper">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
+        <div>
+          <p class="font-display text-2xl font-black uppercase leading-none">
+            Let's make<br />loud things.
+          </p>
+        </div>
+        <div class="space-y-2 text-sm">
+          <p class="font-display text-xs font-bold uppercase tracking-widest text-acid">Contact</p>
+          <a href={`mailto:${contact.email}`} class="block font-bold underline decoration-2 hover:text-acid">
+            {contact.email}
+          </a>
+          <p class="text-paper/70">{contact.location}</p>
+        </div>
+        <div class="space-y-2 text-sm">
+          <p class="font-display text-xs font-bold uppercase tracking-widest text-acid">Elsewhere</p>
+          {
+            contact.socials.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 font-bold hover:text-acid"
+              >
+                <span aria-hidden="true" class="text-acid"><i class="ph ph-arrow-right"></i></span>
+                {s.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="zigzag" aria-hidden="true"></div>
+      <p class="mx-auto max-w-6xl px-4 py-4 text-xs uppercase tracking-widest text-paper/50">
+        © {new Date().getFullYear()} P. Grierson — placeholder data, built for a fictional portfolio.
+      </p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>("#nav-toggle");
+      const menu = document.querySelector<HTMLElement>("#mobile-menu");
+      toggle?.addEventListener("click", () => {
+        const open = menu?.classList.toggle("hidden") === false;
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    </script>
+  </body>
+</html>

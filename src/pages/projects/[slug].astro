@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+
+import { getProjects, getProjectBySlug } from "../../api/mockApi";
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((p) => ({
+    params: { slug: p.slug },
+    props: { slug: p.slug },
+  }));
+}
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const project = await getProjectBySlug(slug);
+
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const dateFmt = (iso: string) =>
+  new Date(iso + "T00:00:00").toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" });
+
+const base = import.meta.env.BASE_URL;
+
+const accent = ["bg-acid", "bg-mint", "bg-flame", "bg-cobalt", "bg-lilac"][
+  project.title.length % 5
+];
+---
+
+<BaseLayout title={`${project.title} — P. Grierson`} description={project.summary}>
+  <article class="px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <a href={base + "#work"} class="btn-brutal mb-8 !px-4 !py-2 text-xs">
+        <span aria-hidden="true"><i class="ph ph-arrow-right"></i></span> Back to all work
+      </a>
+
+      <header class="card-brutal overflow-hidden">
+        <div class="relative h-56 overflow-hidden border-b-4 border-ink sm:h-72">
+          <div class="absolute inset-0 translate-x-3 translate-y-3 bg-cobalt" aria-hidden="true"></div>
+          <div class={["absolute inset-0 grid place-items-center border-b-4 border-ink", accent].join(" ")}>
+            <i class="ph-fill ph-star-four text-7xl text-ink/70" aria-hidden="true"></i>
+          </div>
+          <span
+            class:list={[
+              "absolute left-4 top-4 grid h-9 w-20 place-items-center border-2 border-ink text-xs font-bold uppercase shadow-brutal-sm",
+              project.featured ? "bg-punch text-paper" : "bg-acid",
+            ]}
+          >
+            {project.featured ? "Featured" : "Case study"}
+          </span>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <Badge color="flame" textColor="paper" class="mb-3">{project.role}</Badge>
+          <h1 class="font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl">
+            {project.title}
+          </h1>
+
+          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold uppercase tracking-widest text-ink/70">
+            <span>
+              {dateFmt(project.startDate)} — {project.endDate ? dateFmt(project.endDate) : "Ongoing"}
+            </span>
+            <span class="text-flame">{String(project.title.length).padStart(2, "0")} tags</span>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            {project.stack.map((s) => (
+              <span class="border-2 border-ink bg-paper px-2.5 py-1 text-xs font-bold uppercase tracking-wider">
+                {s}
+              </span>
+            ))}
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-4 border-t-4 border-dashed border-ink/30 pt-6">
+            {
+              project.links?.map((l) => (
+                <a
+                 
+                  href={l.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-brutal btn-brutal--mint !px-4 !py-2 text-xs"
+                >
+                   {l.label} <i class="ph ph-arrow-square-out"></i>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </header>
+
+      <section class="mt-10 card-brutal p-6 sm:p-8">
+        <h2 class="mb-4 font-display text-2xl font-black uppercase tracking-tight">The Brief</h2>
+        {
+          project.description.split("\n\n").map((para) => (
+            <p class="mb-4 text-base font-medium leading-relaxed text-ink/85">{para}</p>
+          ))
+        }
+      </section>
+
+      {
+        project.images && project.images.length > 0 && (
+          <section class="mt-10">
+            <h2 class="mb-4 font-display text-2xl font-black uppercase tracking-tight">Screens</h2>
+            <div class="grid gap-6 sm:grid-cols-2">
+              {
+                project.images.map((img) => (
+                  <figure class="window-chrome">
+                    <div class="window-bar">
+                      <span class="grid h-3 w-3 place-items-center rounded-full border-2 border-ink bg-flame" aria-hidden="true"></span>
+                      <span class="grid h-3 w-3 place-items-center rounded-full border-2 border-ink bg-acid" aria-hidden="true"></span>
+                      <span class="h-3 w-3 rounded-full border-2 border-ink bg-mint" aria-hidden="true"></span>
+                    </div>
+                    <img
+                      src={base + img.replace(/^\//, "")}
+                      alt={`${project.title} — screen capture`}
+                      class="aspect-video w-full bg-paper object-cover"
+                      loading="lazy"
+                      width="800"
+                      height="450"
+                    />
+                    <figcaption class="border-t-4 border-ink bg-paper px-4 py-2 text-xs font-bold uppercase tracking-widest text-ink/60">
+                      {project.title} — placeholder screen
+                    </figcaption>
+                  </figure>
+                ))
+              }
+            </div>
+          </section>
+        )
+      }
+
+      <div class="mt-10 border-t-4 border-ink pt-6">
+        <a href={base + "#work"} class="inline-flex items-center gap-2 font-display text-sm font-black uppercase tracking-widest hover:text-punch">
+          <span aria-hidden="true"><i class="ph ph-arrow-right"></i></span> Back to all work
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

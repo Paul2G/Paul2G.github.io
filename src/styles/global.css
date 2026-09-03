@@ -1,0 +1,140 @@
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/space-grotesk";
+@import "tailwindcss";
+
+@theme {
+  /* --- Neubrutalist palette: intentionally clashing, saturated --- */
+  --color-paper: #f4f1e8;
+  --color-ink: #16121a;
+  --color-acid: #ffdf1b;
+  --color-punch: #ff4fa3;
+  --color-mint: #00d9c8;
+  --color-flame: #ff6b35;
+  --color-cobalt: #3b6cff;
+  --color-lilac: #c9b8ff;
+
+  /* --- Type --- */
+  --font-display: "Bricolage Grotesque Variable", "Arial Black", sans-serif;
+  --font-body: "Space Grotesk Variable", "Arial", sans-serif;
+
+  /* --- Hard 45deg offset shadow --- */
+  --shadow-brutal: 8px 8px 0 0 var(--color-ink);
+  --shadow-brutal-sm: 5px 5px 0 0 var(--color-ink);
+  --shadow-brutal-lg: 14px 14px 0 0 var(--color-ink);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Reusable neubrutalist building blocks. */
+  .disco {
+    @apply bg-acid text-ink border-2 border-ink uppercase font-display font-black tracking-tight;
+  }
+
+  .card-brutal {
+    @apply bg-paper border-4 border-ink shadow-brutal;
+  }
+
+  .btn-brutal {
+    @apply bg-acid text-ink border-2 border-ink uppercase font-display font-black tracking-tight
+      inline-flex items-center gap-2 px-6 py-3 text-sm font-bold tracking-widest
+      shadow-brutal-sm transition-none hover:translate-x-[3px] hover:translate-y-[3px]
+      hover:shadow-none active:translate-x-[5px] active:translate-y-[5px] active:shadow-none
+      hover:bg-punch hover:text-paper;
+  }
+
+  .btn-brutal--punch {
+    @apply bg-punch text-paper border-2 border-ink uppercase font-display font-black tracking-tight
+      hover:bg-acid hover:text-ink;
+  }
+
+  .btn-brutal--mint {
+    @apply bg-mint text-ink border-2 border-ink uppercase font-display font-black tracking-tight
+      hover:bg-cobalt hover:text-paper;
+  }
+
+  .badge-brutal {
+    @apply inline-flex items-center gap-1 border-2 border-ink px-3 py-1 text-xs font-bold
+      uppercase tracking-widest shadow-brutal-sm;
+  }
+
+  .zigzag {
+    height: 14px;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-ink) 0,
+      var(--color-ink) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+
+  .grid-paper {
+    background-image: radial-gradient(
+      var(--color-ink) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .tilt {
+    transform: rotate(-2deg);
+  }
+
+  .tilt-alt {
+    transform: rotate(1.5deg);
+  }
+
+  .outline-surface {
+    @apply border-4 border-ink;
+  }
+
+  .window-chrome {
+    @apply bg-paper border-4 border-ink;
+  }
+
+  .window-bar {
+    @apply flex items-center gap-2 border-b-4 border-ink bg-flame px-3 py-2;
+  }
+
+  .terminal-text {
+    font-family: var(--font-body);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Keyboard focus — hard offset, always visible. */
+:focus-visible {
+  outline: 4px solid var(--color-cobalt);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-punch);
+  color: var(--color-paper);
+}
